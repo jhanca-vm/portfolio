@@ -1,4 +1,4 @@
-import { FunctionComponent } from "preact";
+import type { FunctionComponent } from "preact";
 
 export const Header: FunctionComponent = () => {
   const socialMedia = new Map<string, [string, string]>();

@@ -1,24 +1,22 @@
-import { FunctionComponent } from "preact";
-import { Project } from "../types.ts";
+import type { FunctionComponent } from "preact";
+import type { Project } from "../types.ts";
+import { Section } from "./Section.tsx";
 
 interface Props {
   data: Project[];
 }
 
 export const Projects: FunctionComponent<Props> = ({ data }) => (
-  <section class="mt-16 mb-12 sm:mt-20 xl:(mt-28 mb-16)">
-    <h2 class="font-serif text-2xl border-b border-[#f7c28c] pb-2 mb-7">
-      Projects
-    </h2>
+  <Section title="Projects">
     <div class="grid sm:grid-cols-2 lg:grid-cols-3">
       {data.map(({ name, url, repository, screenshot }) => (
         <div>
           <a href={url} target="_blank" rel="noreferrer">
             <img
               style={{ aspectRatio: "1.6 / 1" }}
-              class="w-full rounded shadow-lg hover:shadow-2xl"
+              class="w-full rounded shadow-lg border border-gray-100 hover:shadow-2xl"
               src={screenshot}
-              alt=""
+              alt={name}
               key={name}
             />
           </a>
@@ -41,5 +39,5 @@ export const Projects: FunctionComponent<Props> = ({ data }) => (
         </div>
       ))}
     </div>
-  </section>
+  </Section>
 );
