@@ -1,0 +1,9 @@
+{
+  "arrowParens": "avoid",
+  "overrides": [{ "files": "*.astro", "options": { "parser": "astro" } }],
+  "plugins": ["prettier-plugin-astro", "prettier-plugin-tailwindcss"],
+  "pluginSearchDirs": false,
+  "semi": false,
+  "singleQuote": true,
+  "trailingComma": "none"
+}

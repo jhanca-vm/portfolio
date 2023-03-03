@@ -1,0 +1,32 @@
+---
+import '@fontsource/grenze-gotisch/variable.css'
+import '@fontsource/spline-sans-mono/variable.css'
+import Header from '@components/Header.astro'
+import Hero from '@components/Hero.astro'
+import Projects from '@components/projects/Projects.astro'
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Jhan Carlos Viloria Murillo</title>
+    <meta
+      name="description"
+      content="I'm developer with strong React and Svelte skills. I have more than 6
+        months of experience and I am constantly looking to learn and improve my
+        skills."
+    />
+  </head>
+  <body class="bg-[#f7f7f7] font-mono text-[#3a2624]">
+    <Header />
+    <main class="px-5 md:px-8">
+      <div class="mx-auto max-w-5xl">
+        <Hero />
+        <Projects />
+      </div>
+    </main>
+  </body>
+</html>
