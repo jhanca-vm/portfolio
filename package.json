@@ -1,33 +1,29 @@
 {
   "name": "portfolio",
-  "type": "module",
-  "version": "1.0.0",
+  "version": "2.0.0",
+  "private": true,
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "wrangler pages dev ./dist",
-    "lint": "prettier -c --plugin-search-dir=. src && eslint src"
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "lint": "prettier --check src"
   },
   "dependencies": {
-    "@astrojs/tailwind": "^3.0.1",
-    "@fontsource/grenze-gotisch": "^4.5.11",
-    "@fontsource/spline-sans-mono": "^4.5.3",
-    "astro": "^2.0.17",
-    "tailwindcss": "^3.0.24"
+    "@fontsource/major-mono-display": "^4.5.11",
+    "@fontsource/spline-sans-mono": "^4.5.3"
   },
   "devDependencies": {
-    "@typescript-eslint/parser": "^5.54.0",
-    "eslint": "^8.35.0",
-    "eslint-config-standard": "^17.0.0",
-    "eslint-plugin-astro": "^0.23.0",
-    "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-jsx-a11y": "^6.7.1",
-    "eslint-plugin-n": "^15.6.1",
-    "eslint-plugin-promise": "^6.1.1",
-    "prettier": "^2.8.4",
-    "prettier-plugin-astro": "^0.8.0",
-    "prettier-plugin-tailwindcss": "^0.2.4",
-    "typescript": "^4.9.5",
-    "wrangler": "^2.12.0"
-  }
+    "@sveltejs/adapter-cloudflare": "^2.2.0",
+    "@sveltejs/kit": "^1.5.0",
+    "prettier": "^2.8.6",
+    "prettier-plugin-svelte": "^2.10.0",
+    "sass": "^1.60.0",
+    "svelte": "^3.54.0",
+    "svelte-check": "^3.0.1",
+    "tslib": "^2.4.1",
+    "typescript": "^5.0.0",
+    "vite": "^4.2.0"
+  },
+  "type": "module"
 }
