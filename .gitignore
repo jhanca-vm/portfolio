@@ -1,4 +1,2 @@
-/node_modules
-/build
-/.svelte-kit
-package-lock.json
+node_modules/
+dist/

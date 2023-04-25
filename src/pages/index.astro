@@ -1,0 +1,57 @@
+---
+import '@fontsource/noto-sans-mono/variable-full.css'
+import Hero from '../components/Hero.astro'
+import Projects from '../components/Projects.astro'
+import Footer from '../components/Footer.astro'
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Jhan Carlos Viloria Murillo</title>
+    <meta
+      name="description"
+      content={'Desarrollador frontend con +1 año de experiencia desarrollando' +
+        ' sitios web con tecnologías como React, Next.js y Web3.'}
+    />
+  </head>
+  <body>
+    <main>
+      <Hero />
+      <Projects />
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style is:global>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    font-size: 62.5%;
+  }
+
+  body {
+    background-color: #f6f6f6;
+    color: #212121;
+    font-family: 'Noto Sans MonoVariable', sans-serif;
+    font-size: 1.6rem;
+  }
+
+  img {
+    height: auto;
+    max-width: 100%;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+</style>

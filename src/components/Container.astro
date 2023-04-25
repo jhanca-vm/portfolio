@@ -1,0 +1,42 @@
+---
+interface Props {
+  class: string
+  backgroundColor?: string
+}
+
+const { class: className, backgroundColor = 'transparent' } = Astro.props
+---
+
+<section>
+  <div class={className}>
+    <slot />
+  </div>
+</section>
+
+<style lang="scss" define:vars={{ backgroundColor }}>
+  section {
+    align-items: center;
+    background-image: linear-gradient(var(--backgroundColor), transparent);
+    background-attachment: fixed;
+    display: grid;
+    padding: 4.8rem 2.4rem;
+
+    @media (min-width: 640px) {
+      padding-inline: 4rem;
+    }
+
+    @media (min-width: 768px) {
+      padding-block: 8rem;
+    }
+
+    @media (min-width: 1280px) {
+      min-height: 100vh;
+    }
+  }
+
+  div {
+    margin-inline: auto;
+    max-width: 100rem;
+    width: 100%;
+  }
+</style>

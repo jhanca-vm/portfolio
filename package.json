@@ -1,29 +1,19 @@
 {
   "name": "portfolio",
+  "type": "module",
   "version": "2.0.0",
-  "private": true,
   "scripts": {
-    "dev": "vite dev",
-    "build": "vite build",
-    "preview": "vite preview",
-    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-    "lint": "prettier --check src"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
   },
   "dependencies": {
-    "@fontsource/major-mono-display": "^4.5.11",
-    "@fontsource/spline-sans-mono": "^4.5.3"
+    "@fontsource/noto-sans-mono": "^4.5.13",
+    "astro": "^2.3.0",
+    "sass": "^1.62.0"
   },
   "devDependencies": {
-    "@sveltejs/adapter-cloudflare": "^2.2.0",
-    "@sveltejs/kit": "^1.5.0",
-    "prettier": "^2.8.6",
-    "prettier-plugin-svelte": "^2.10.0",
-    "sass": "^1.60.0",
-    "svelte": "^3.54.0",
-    "svelte-check": "^3.0.1",
-    "tslib": "^2.4.1",
-    "typescript": "^5.0.0",
-    "vite": "^4.2.0"
-  },
-  "type": "module"
+    "prettier": "^2.8.8",
+    "prettier-plugin-astro": "^0.8.0"
+  }
 }

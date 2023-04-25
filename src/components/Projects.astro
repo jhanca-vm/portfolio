@@ -1,0 +1,105 @@
+---
+import Container from './Container.astro'
+import ExternalLink from './ExternalLink.astro'
+
+const projects = [
+  { id: 'freestylehub', name: 'FreestyleHub', href: 'freestylehub.vercel.app' },
+  { id: 'kanban', name: 'Kanban task management', href: 'kanbanjvm.vercel.app' }
+]
+---
+
+<Container class="projects">
+  <h2>Proyectos Destacados</h2>
+  <div>
+    {
+      projects.map(({ id, href, name }) => (
+        <article>
+          <ExternalLink href={href}>
+            <img
+              class="preview"
+              src={`/images/${id}.webp`}
+              alt={name}
+              width="512"
+              height="320"
+            />
+          </ExternalLink>
+          <div>
+            <ExternalLink href={href}>{name}</ExternalLink>
+            <ExternalLink href={`github.com/jhanca-vm/${id}`}>
+              <img
+                src="/icons/github.svg"
+                alt="Repositorio"
+                width="28"
+                height="28"
+              />
+            </ExternalLink>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</Container>
+
+<style lang="scss">
+  $radius: 0.8rem;
+
+  h2 {
+    color: #6d9886;
+    font-size: 2rem;
+    margin-bottom: 3.6rem;
+    text-align: center;
+
+    @media (min-width: 768px) {
+      font-size: 2.4rem;
+      margin-bottom: 4.8rem;
+    }
+  }
+
+  article {
+    border-radius: $radius;
+    box-shadow: 0 24px 48px -12px rgba(33 33 33 / 0.24);
+    display: flex;
+    flex-direction: column;
+
+    div {
+      border-radius: 0 0 $radius $radius;
+      align-items: center;
+      display: flex;
+      flex-grow: 1;
+      justify-content: space-between;
+      padding: 0.8rem 1.6rem 1.2rem;
+
+      :global(a) {
+        display: flex;
+        font-weight: 600;
+
+        &:not(:hover) {
+          opacity: 0.8;
+        }
+      }
+
+      img {
+        width: 2.4rem;
+      }
+    }
+  }
+
+  .preview {
+    border-radius: $radius $radius 0 0;
+    display: block;
+    opacity: 0.92;
+  }
+
+  .projects > div {
+    display: grid;
+    gap: 4.4rem;
+
+    @media (min-width: 640px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 1024px) {
+      gap: 6rem;
+    }
+  }
+</style>
