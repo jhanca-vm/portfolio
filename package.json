@@ -8,6 +8,7 @@
     "preview": "astro preview"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "^6.2.2",
     "@fontsource/noto-sans-mono": "^4.5.13",
     "astro": "^2.3.0",
     "sass": "^1.62.0"
