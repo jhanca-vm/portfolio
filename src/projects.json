@@ -1,0 +1,14 @@
+[
+  {
+    "id": "freestylehub",
+    "name": "FreestyleHub",
+    "description": "Sitio web informativo acerca de todas las FMS de Urban Roosters.",
+    "href": "freestylehub.vercel.app"
+  },
+  {
+    "id": "kanban",
+    "name": "Kanban task management",
+    "description": "Aplicación web de gestión de tareas Kanban.",
+    "href": "kanbanjvm.vercel.app"
+  }
+]

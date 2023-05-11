@@ -41,7 +41,11 @@ import ExternalLink from './ExternalLink.astro'
     }
   }
 
-  img:not(:hover) {
-    opacity: 0.72;
+  img {
+    transition: opacity 200ms ease-out;
+
+    &:not(:hover) {
+      opacity: 0.72;
+    }
   }
 </style>

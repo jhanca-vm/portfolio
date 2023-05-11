@@ -1,37 +1,31 @@
 ---
+import projects from '../projects.json'
 import Container from './Container.astro'
 import ExternalLink from './ExternalLink.astro'
-
-const projects = [
-  { id: 'freestylehub', name: 'FreestyleHub', href: 'freestylehub.vercel.app' },
-  { id: 'kanban', name: 'Kanban task management', href: 'kanbanjvm.vercel.app' }
-]
 ---
 
 <Container class="projects">
   <h2>Proyectos Destacados</h2>
   <div>
     {
-      projects.map(({ id, href, name }) => (
+      projects.map(({ id, href, name, description }) => (
         <article>
-          <ExternalLink href={href}>
-            <img
-              class="preview"
-              src={`/images/${id}.webp`}
-              alt={name}
-              width="512"
-              height="320"
-            />
-          </ExternalLink>
+          <img src={`/images/${id}.webp`} alt={name} width="512" height="320" />
+          <h3>{name}</h3>
+          <p>{description}</p>
           <div>
-            <ExternalLink href={href}>{name}</ExternalLink>
-            <ExternalLink href={`github.com/jhanca-vm/${id}`}>
+            <ExternalLink href={href}>
               <img
-                src="/icons/github.svg"
-                alt="Repositorio"
+                src="/icons/external-link.svg"
+                alt=""
                 width="28"
                 height="28"
               />
+              Ver sitio web
+            </ExternalLink>
+            <ExternalLink href={`github.com/jhanca-vm/${id}`}>
+              <img src="/icons/github.svg" alt="" width="28" height="28" />
+              Repositorio
             </ExternalLink>
           </div>
         </article>
@@ -41,65 +35,83 @@ const projects = [
 </Container>
 
 <style lang="scss">
-  $radius: 0.8rem;
-
   h2 {
-    color: #6d9886;
-    font-size: 2rem;
-    margin-bottom: 3.6rem;
+    font-size: 2.2rem;
+    margin-bottom: 4rem;
     text-align: center;
 
-    @media (min-width: 768px) {
-      font-size: 2.4rem;
-      margin-bottom: 4.8rem;
+    @media (min-width: 640px) {
+      font-size: 2.6rem;
     }
+
+    @media (min-width: 768px) {
+      margin-bottom: 5.2rem;
+    }
+  }
+
+  h3 {
+    color: rgb(var(--color-300));
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-block: 1.2rem 0.8rem;
+  }
+
+  p {
+    font-size: 1.4rem;
+    line-height: 1.5;
+    opacity: 0.8;
+    margin-bottom: 1.6rem;
   }
 
   article {
-    border-radius: $radius;
-    box-shadow: 0 24px 48px -12px rgba(33 33 33 / 0.24);
-    display: flex;
-    flex-direction: column;
+    & > img {
+      border-radius: 1.2rem;
+    }
 
-    div {
-      border-radius: 0 0 $radius $radius;
-      align-items: center;
+    div,
+    :global(a) {
       display: flex;
-      flex-grow: 1;
-      justify-content: space-between;
-      padding: 0.8rem 1.6rem 1.2rem;
+    }
 
-      :global(a) {
-        display: flex;
-        font-weight: 600;
+    :global(a) {
+      align-items: center;
+      background-color: rgba(var(--color-200), 0.8);
+      border-radius: 2rem;
+      column-gap: 0.6rem;
+      font-size: 1.2rem;
+      font-weight: 500;
+      padding: 0.8rem 1.2rem;
+      transition: background-color 200ms ease-out;
 
-        &:not(:hover) {
-          opacity: 0.8;
-        }
-      }
-
-      img {
-        width: 2.4rem;
+      &:hover {
+        background-color: rgb(var(--color-200));
       }
     }
-  }
 
-  .preview {
-    border-radius: $radius $radius 0 0;
-    display: block;
-    opacity: 0.92;
+    div {
+      column-gap: 1.2rem;
+
+      img {
+        width: 1.6rem;
+      }
+    }
   }
 
   .projects > div {
     display: grid;
-    gap: 4.4rem;
+    row-gap: 4.8rem;
 
     @media (min-width: 640px) {
+      column-gap: 3.2rem;
       grid-template-columns: repeat(2, 1fr);
     }
 
-    @media (min-width: 1024px) {
-      gap: 6rem;
+    @media (min-width: 768px) {
+      column-gap: 4.8rem;
+    }
+
+    @media (min-width: 1280px) {
+      column-gap: 6.4rem;
     }
   }
 </style>

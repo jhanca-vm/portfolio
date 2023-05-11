@@ -3,7 +3,7 @@ import Container from './Container.astro'
 import Links from './Links.astro'
 ---
 
-<Container class="hero" backgroundColor="#d9cab3">
+<Container class="hero" backgroundColor="rgb(var(--color-200))">
   <div>
     <p>¡Hola! Soy Jhan Viloria, Desarrollador Frontend.</p>
     <p>
@@ -54,7 +54,7 @@ import Links from './Links.astro'
   }
 
   img {
-    filter: drop-shadow(4px 4px 12px rgba(33, 33, 33, 0.2));
+    filter: drop-shadow(4px 4px 12px rgba(var(--color-400), 0.2));
     justify-self: flex-end;
 
     @media (min-width: 640px) and (max-width: 767px) {

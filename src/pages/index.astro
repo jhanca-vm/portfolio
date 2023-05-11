@@ -8,7 +8,7 @@ import Footer from '../components/Footer.astro'
 <html lang="es">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>Jhan Carlos Viloria Murillo</title>
@@ -28,6 +28,13 @@ import Footer from '../components/Footer.astro'
 </html>
 
 <style is:global>
+  :root {
+    --color-100: 246, 246, 246;
+    --color-200: 217, 202, 179;
+    --color-300: 109, 152, 134;
+    --color-400: 33, 33, 33;
+  }
+
   * {
     box-sizing: border-box;
     margin: 0;
@@ -39,8 +46,8 @@ import Footer from '../components/Footer.astro'
   }
 
   body {
-    background-color: #f6f6f6;
-    color: #212121;
+    background-color: rgb(var(--color-100));
+    color: rgb(var(--color-400));
     font-family: 'Noto Sans MonoVariable', sans-serif;
     font-size: 1.6rem;
   }
