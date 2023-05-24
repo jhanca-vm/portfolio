@@ -1,44 +1,16 @@
 <footer>
-  <div>
-    <p>
-      Contacto: <a href="mailto:jhanca-vm@proton.me">jhanca-vm@proton.me</a>
-    </p>
-    <p>© 2023 Jhan Viloria</p>
-  </div>
+  <p>© 2023 Jhan Viloria.</p>
 </footer>
 
 <style lang="scss">
   footer {
-    background-color: rgb(var(--color-400));
-    color: rgba(var(--color-100), 0.8);
     font-family: system-ui;
     font-size: 1.4rem;
-    line-height: 1.75;
-    margin-top: 3.2rem;
-    padding-block: 2rem 2.4rem;
+    padding-block: 1.6rem;
     text-align: center;
 
-    @media (min-width: 640px) {
-      padding: 1.6rem 3.2rem;
-    }
-
-    a {
-      color: rgb(var(--color-200));
-      transition: opacity 200ms ease-out;
-
-      &:not(:hover) {
-        opacity: 0.8;
-      }
-    }
-  }
-
-  div {
-    margin-inline: auto;
-    max-width: 100rem;
-
-    @media (min-width: 640px) {
-      display: flex;
-      justify-content: space-between;
+    p {
+      opacity: 0.8;
     }
   }
 </style>
