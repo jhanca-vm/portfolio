@@ -1,36 +1,14 @@
 ---
+import { t } from 'i18next'
 import projects from '../projects.json'
 import Container from './Container.astro'
-import ExternalLink from './ExternalLink.astro'
+import Project from './Project.astro'
 ---
 
 <Container class="projects">
-  <h2>Proyectos Destacados</h2>
+  <h2>{t('projects')}</h2>
   <div>
-    {
-      projects.map(({ id, href, name, description }) => (
-        <article>
-          <img src={`/images/${id}.webp`} alt={name} width="512" height="320" />
-          <h3>{name}</h3>
-          <p>{description}</p>
-          <div>
-            <ExternalLink href={href}>
-              <img
-                src="/icons/external-link.svg"
-                alt=""
-                width="28"
-                height="28"
-              />
-              Sitio web
-            </ExternalLink>
-            <ExternalLink href={`github.com/jhanca-vm/${id}`}>
-              <img src="/icons/github.svg" alt="" width="28" height="28" />
-              Repositorio
-            </ExternalLink>
-          </div>
-        </article>
-      ))
-    }
+    {projects.map(props => <Project {...props} />)}
   </div>
 </Container>
 
@@ -45,60 +23,7 @@ import ExternalLink from './ExternalLink.astro'
     }
 
     @media (min-width: 768px) {
-      margin-bottom: 5.2rem;
-    }
-  }
-
-  h3 {
-    color: rgb(var(--color-300));
-    font-size: 1.8rem;
-    font-weight: 600;
-    margin-block: 1.2rem 0.8rem;
-
-    @media (min-width: 1280px) {
-      font-size: 2rem;
-    }
-  }
-
-  p {
-    font-size: 1.4rem;
-    line-height: 1.5;
-    opacity: 0.8;
-    margin-bottom: 2rem;
-  }
-
-  article {
-    & > img {
-      border-radius: 1.6rem;
-      opacity: 0.96;
-    }
-
-    div,
-    :global(a) {
-      display: flex;
-    }
-
-    :global(a) {
-      align-items: center;
-      background-color: rgba(var(--color-200), 0.8);
-      border-radius: 2rem;
-      column-gap: 0.6rem;
-      font-size: 1.2rem;
-      font-weight: 500;
-      padding: 0.8rem 1.2rem;
-      transition: background-color 200ms ease-out;
-
-      &:hover {
-        background-color: rgb(var(--color-200));
-      }
-    }
-
-    div {
-      column-gap: 1.2rem;
-
-      img {
-        width: 1.6rem;
-      }
+      margin-bottom: 5.6rem;
     }
   }
 
@@ -110,13 +35,13 @@ import ExternalLink from './ExternalLink.astro'
       column-gap: 3.2rem;
       grid-template-columns: repeat(2, 1fr);
     }
-    
+
     @media (min-width: 768px) {
       column-gap: 4.8rem;
     }
-    
+
     @media (min-width: 1280px) {
-      column-gap: 6.4rem;
+      column-gap: 6.8rem;
     }
   }
 </style>

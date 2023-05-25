@@ -1,16 +1,53 @@
+---
+import { LanguageSelector } from 'astro-i18next/components'
+---
+
 <footer>
-  <p>© 2023 Jhan Viloria.</p>
+  <div>
+    <label>
+      <img src="/icons/world.svg" alt="" width="20" height="20" />
+      <LanguageSelector class="lang" />
+    </label>
+    <p>© Jhan Viloria 2023</p>
+  </div>
 </footer>
 
 <style lang="scss">
   footer {
-    font-family: system-ui;
+    background: linear-gradient(
+      to top,
+      rgba(var(--color-200), 0.76) 48%,
+      transparent
+    );
+    font-family: 'Nunito Variable', sans-serif;
     font-size: 1.4rem;
-    padding-block: 1.6rem;
-    text-align: center;
+    font-weight: 500;
+    padding: 1.6rem 2.4rem 1.2rem;
+    
+    @media (min-width: 640px) {
+      padding-inline: 3.2rem;
+    }
+  }
+  
+  div {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-inline: auto;
+    max-width: 100rem;
+    width: 100%;
+  }
 
-    p {
-      opacity: 0.8;
+  label {
+    display: flex;
+  }
+
+  .lang {
+    all: unset;
+    padding: 0.8rem;
+
+    &:focus {
+      text-decoration: underline;
     }
   }
 </style>

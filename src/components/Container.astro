@@ -19,7 +19,7 @@ const { class: className, backgroundColor = 'transparent' } = Astro.props
     background-image: linear-gradient(var(--backgroundColor), transparent);
     background-attachment: fixed;
     display: grid;
-    padding: 4.8rem 2.4rem;
+    padding: 4rem 2.4rem;
 
     @media (min-width: 640px) {
       padding-inline: 3.2rem;
@@ -30,7 +30,9 @@ const { class: className, backgroundColor = 'transparent' } = Astro.props
     }
 
     @media (min-width: 1280px) {
+      background-attachment: scroll;
       min-height: 100vh;
+      padding-top: 4.8rem;
     }
   }
 

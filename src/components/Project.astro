@@ -1,0 +1,86 @@
+---
+import i18next from 'i18next'
+import ExternalLink from './ExternalLink.astro'
+
+interface Props {
+  id: string
+  name: string
+  description: { es: string; en: string }
+  href: string
+}
+
+const { id, name, description, href } = Astro.props
+---
+
+<article>
+  <img src={`/images/${id}.webp`} alt={name} width="512" height="320" />
+  <h3>{name}</h3>
+  <p>{description[i18next.language]}</p>
+  <div>
+    <ExternalLink href={href}>
+      <img src="/icons/external-link.svg" alt="" width="28" height="28" />
+      Sitio web
+    </ExternalLink>
+    <ExternalLink href={`github.com/jhanca-vm/${id}`}>
+      <img src="/icons/github.svg" alt="" width="28" height="28" />
+      Repositorio
+    </ExternalLink>
+  </div>
+</article>
+
+<style lang="scss">
+  article {
+    padding-left: 8px;
+
+    & > img {
+      box-shadow: -6px 6px rgb(var(--color-300));
+      border-radius: 1.6rem;
+      margin-bottom: 6px;
+      opacity: 0.96;
+    }
+
+    h3 {
+      font-size: 1.8rem;
+      margin-block: 1.6rem 0.8rem;
+
+      @media (min-width: 1280px) {
+        font-size: 2rem;
+      }
+    }
+
+    p {
+      font-size: 1.4rem;
+      line-height: 1.5;
+      opacity: 0.8;
+      margin-bottom: 2.4rem;
+    }
+
+    div,
+    :global(a) {
+      display: flex;
+    }
+
+    :global(a) {
+      align-items: center;
+      background-color: rgba(var(--color-200), 0.75);
+      border-radius: 2rem;
+      column-gap: 0.6rem;
+      font-size: 1.2rem;
+      font-weight: 500;
+      padding: 0.8rem 1.2rem;
+      transition: opacity 150ms ease-out;
+
+      &:not(:hover) {
+        opacity: 0.84;
+      }
+    }
+
+    div {
+      column-gap: 1.2rem;
+
+      img {
+        width: 1.6rem;
+      }
+    }
+  }
+</style>
