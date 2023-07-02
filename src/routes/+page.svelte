@@ -49,7 +49,7 @@
   @media (min-width: 640px) {
     main {
       gap: 3.2rem;
-      padding: 4.8rem 3.2rem;
+      padding: 4rem 3.2rem;
     }
   }
 </style>

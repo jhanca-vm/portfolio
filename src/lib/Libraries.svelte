@@ -23,7 +23,7 @@
 
 <style>
   h2 {
-    color: hwb(var(--color-300));
+    color: rgb(var(--color-300));
     margin-bottom: 2.8rem;
   }
 

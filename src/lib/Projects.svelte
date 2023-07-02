@@ -33,8 +33,12 @@
 </section>
 
 <style>
+  section {
+    padding-bottom: 4rem;
+  }
+
   h2 {
-    color: hwb(var(--color-300));
+    color: rgb(var(--color-300));
     margin-bottom: 3.2rem;
   }
 
@@ -51,7 +55,7 @@
   }
 
   a:hover img {
-    box-shadow: 0 4px 8px black;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
   }
 
   img {
@@ -75,7 +79,7 @@
     }
 
     div {
-      column-gap: 3.2rem;
+      column-gap: 3.6rem;
       grid-template-columns: repeat(2, 1fr);
     }
   }
