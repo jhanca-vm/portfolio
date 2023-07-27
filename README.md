@@ -2,13 +2,14 @@
 
 ## Developing
 
-Once you've installed dependencies with `pnpm i`, start a development server:
+Once you've installed dependencies with `npm install`, start a development
+server:
 
 ```bash
-pnpm dev
+npm run dev
 
 # or start the server and open the app in a new browser tab
-pnpm dev --open
+npm run dev -- --open
 ```
 
 ## Building
@@ -16,7 +17,7 @@ pnpm dev --open
 To create a production version:
 
 ```bash
-pnpm build
+npm run build
 ```
 
 You can preview the production build with `npm run preview`.

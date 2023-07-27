@@ -1,55 +1,61 @@
-<script>
-  import '@fontsource/lato/400.css'
-  import '@fontsource/lato/700.css'
-  import '@fontsource/lato/900.css'
+<script lang="ts">
+  import '@fontsource-variable/space-grotesk'
   import '../app.css'
+  import Header from '$lib/Header.svelte'
   import Hero from '$lib/Hero.svelte'
-  import Libraries from '$lib/Libraries.svelte'
-  import Projects from '$lib/Projects.svelte'
+
+  export let data
 </script>
 
 <svelte:head>
-  <title>Jhan Carlos Viloria - Frontend Developer</title>
+  <title>Jhan Viloria - Frontend Developer</title>
   <meta
     name="description"
-    content={'+1 year of experience developing websites using technologies ' +
-      'such as React, Next.js, Svelte and Web3.'}
+    content={'Based in Colombia, I’m a front‑end developer with over 2 year ' +
+      'of experience, passionate about building accessible web apps that ' +
+      'users love.'}
   />
 </svelte:head>
 
-<main>
+<Header />
+<main class="max-w-[62.5rem] mx-auto">
   <Hero />
-  <Libraries />
-  <Projects />
+  <section class="my-20 sm:mt-15 md:mt-20 md:mb-24 lg:mb-28">
+    <h2
+      class="mb-10 flex items-center gap-x-[1em] font-bold text-[2.5rem]
+        tracking-tight md:mb-15 md:text-6xl lg:mb-20"
+    >
+      Projects
+      <span class="h-px flex-grow bg-white" />
+    </h2>
+    <div class="grid gap-y-10 sm:grid-cols-2 sm:gap-x-5 lg:gap-x-6">
+      {#each data.projects as { id, name }}
+        <article>
+          <img src={`/images/${id}.webp`} alt="" width="512" height="320" />
+          <h3 class="mt-5 font-bold text-2xl uppercase">{name}</h3>
+          <div
+            class="mt-2 flex gap-x-8 font-medium uppercase text-neutral
+              tracking-widest underline underline-offset-8 decoration-accent"
+          >
+            <a
+              class="transition-colors hover:text-accent"
+              href={`https://${id}-jvm.vercel.app`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              View Project
+            </a>
+            <a
+              class="transition-colors hover:text-accent"
+              href={`https://github.com/jhanca-vm/${id}`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              View Code
+            </a>
+          </div>
+        </article>
+      {/each}
+    </div>
+  </section>
 </main>
-<footer>© 2023 Jhan Viloria</footer>
-
-<style>
-  main {
-    display: grid;
-    gap: 2.4rem 1.6rem;
-    margin-inline: auto;
-    max-width: 100rem;
-    padding: 2.4rem 1.6rem;
-  }
-
-  footer {
-    font-size: 1.4rem;
-    opacity: 0.8;
-    padding: 1.6rem;
-    text-align: center;
-  }
-
-  @media (min-width: 640px) {
-    main {
-      grid-template-columns: 1.25fr 1fr;
-    }
-  }
-
-  @media (min-width: 640px) {
-    main {
-      gap: 3.2rem;
-      padding: 4rem 3.2rem;
-    }
-  }
-</style>
