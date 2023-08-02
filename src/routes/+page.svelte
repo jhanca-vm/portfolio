@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
   import '@fontsource-variable/space-grotesk'
   import '../app.css'
   import Header from '$lib/Header.svelte'
@@ -29,9 +29,9 @@
       <span class="h-px flex-grow bg-white" />
     </h2>
     <div class="grid gap-y-10 sm:grid-cols-2 sm:gap-x-5 lg:gap-x-6">
-      {#each data.projects as { id, name }}
+      {#each data.projects as { id, name, image }}
         <article>
-          <img src={`/images/${id}.webp`} alt="" width="512" height="320" />
+          <img src={image} alt="" width="512" height="320" />
           <h3 class="mt-5 font-bold text-2xl uppercase">{name}</h3>
           <div
             class="mt-2 flex gap-x-8 font-medium uppercase text-neutral
