@@ -1,8 +1,12 @@
 <script>
   import '@fontsource-variable/space-grotesk'
   import '../app.css'
-  import Header from '$lib/Header.svelte'
-  import Hero from '$lib/Hero.svelte'
+  import Header from './Header.svelte'
+  import Hero from './Hero.svelte'
+  import Projects from './Projects.svelte'
+  import rings from '$lib/assets/rings.svg'
+  import circle from '$lib/assets/circle.svg'
+  import profile from '$lib/assets/profile-md.webp'
 
   export let data
 </script>
@@ -15,47 +19,13 @@
       'of experience, passionate about building accessible web apps that ' +
       'users love.'}
   />
+  <link rel="preload" href={rings} as="image" />
+  <link rel="preload" href={circle} as="image" />
+  <link rel="preload" href={profile} as="image" media="(min-width: 640px)" />
 </svelte:head>
 
 <Header />
-<main class="max-w-[62.5rem] mx-auto">
+<main class="mx-auto max-w-5xl">
   <Hero />
-  <section class="my-20 sm:mt-15 md:mt-20 md:mb-24 lg:mb-28">
-    <h2
-      class="mb-10 flex items-center gap-x-[1em] font-bold text-[2.5rem]
-        tracking-tight md:mb-15 md:text-6xl lg:mb-20"
-    >
-      Projects
-      <span class="h-px flex-grow bg-white" />
-    </h2>
-    <div class="grid gap-y-10 sm:grid-cols-2 sm:gap-x-5 lg:gap-x-6">
-      {#each data.projects as { id, name, image }}
-        <article>
-          <img src={image} alt="" width="512" height="320" />
-          <h3 class="mt-5 font-bold text-2xl uppercase">{name}</h3>
-          <div
-            class="mt-2 flex gap-x-8 font-medium uppercase text-neutral
-              tracking-widest underline underline-offset-8 decoration-accent"
-          >
-            <a
-              class="transition-colors hover:text-accent"
-              href={`https://${id}-jvm.vercel.app`}
-              target="_blank"
-              rel="noreferrer"
-            >
-              View Project
-            </a>
-            <a
-              class="transition-colors hover:text-accent"
-              href={`https://github.com/jhanca-vm/${id}`}
-              target="_blank"
-              rel="noreferrer"
-            >
-              View Code
-            </a>
-          </div>
-        </article>
-      {/each}
-    </div>
-  </section>
+  <Projects data={data.projects} />
 </main>
