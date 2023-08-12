@@ -3,49 +3,9 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
+  html {
     color-scheme: dark;
-  }
-
-  body {
-    --circle: url('$lib/assets/circle.svg');
-    --rings: url('$lib/assets/rings.svg');
-    background:
-      var(--circle) calc(100% + 64px) 13.9375rem,
-      url('$lib/assets/profile-sm.webp') center top / 10rem,
-      var(--rings) -21.5rem 7.75rem;
-  }
-
-  @media screen(sm) {
-    body {
-      --profile: url('$lib/assets/profile-md.webp');
-      background:
-        var(--circle) calc(100% + 64px) 19.875rem,
-        var(--profile) right top / 15rem,
-        var(--rings) -16.5rem 5.375rem;
-    }
-  }
-
-  @media screen(md) {
-    body {
-      background:
-        var(--circle) calc(100% + 64px) 25.4375rem,
-        var(--profile) right top / 18rem,
-        var(--rings) -16.5rem 5.375rem;
-    }
-  }
-
-  @media (min-width: 1064px) {
-    body {
-      background:
-        var(--circle) calc(100% - ((100vw - 34.5rem) / 2)) 25.4375rem,
-        var(--profile) calc(100% - ((100vw - 62.5rem) / 2)) top / 18rem,
-        var(--rings) -6.25rem 7rem;
-    }
-
-    header {
-      padding-right: 2rem;
-    }
+    overflow-x: hidden;
   }
 }
 

@@ -1,4 +1,4 @@
-<footer class="-mx-4 bg-default-300 px-4 sm:-mx-8 sm:px-8">
+<footer class="-mx-4 bg-default-300 px-4 font-medium sm:-mx-8 sm:px-8">
   <div
     class="mx-auto flex max-w-5xl flex-col-reverse items-center gap-y-5 border-t
       border-default-100 pb-10 pt-9 sm:flex-row sm:justify-between"

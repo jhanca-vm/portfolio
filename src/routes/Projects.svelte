@@ -15,7 +15,7 @@
   <div class="grid gap-y-10 sm:grid-cols-2 sm:gap-x-6 lg:gap-x-8">
     {#each data as { id, name, image }}
       <article>
-        <img src={image} alt="" width="512" height="320" />
+        <img src={image} alt="" width="512" height="320" loading="lazy" />
         <h3 class="mt-5 text-2xl font-bold uppercase">{name}</h3>
         <div class="mt-2 flex gap-x-8 font-medium uppercase tracking-widest">
           <a

@@ -16,7 +16,7 @@
 
 <header
   class="flex flex-col gap-y-5 pt-5 sm:flex-row sm:items-center
-    sm:justify-between sm:pt-7 lg:mx-auto lg:max-w-5xl lg:pt-10"
+    sm:justify-between sm:pt-7 lg:mx-auto lg:max-w-5xl lg:pt-10 xl:pr-8"
 >
   <p
     class="text-center text-2xl font-bold leading-none tracking-tight
