@@ -4,9 +4,7 @@
   import Header from './Header.svelte'
   import Hero from './Hero.svelte'
   import Projects from './Projects.svelte'
-  import rings from '$lib/assets/rings.svg'
-  import circle from '$lib/assets/circle.svg'
-  import profile from '$lib/assets/profile-md.webp'
+  import Footer from './Footer.svelte'
 
   export let data
 </script>
@@ -19,9 +17,6 @@
       'of experience, passionate about building accessible web apps that ' +
       'users love.'}
   />
-  <link rel="preload" href={rings} as="image" />
-  <link rel="preload" href={circle} as="image" />
-  <link rel="preload" href={profile} as="image" media="(min-width: 640px)" />
 </svelte:head>
 
 <Header />
@@ -29,3 +24,4 @@
   <Hero />
   <Projects data={data.projects} />
 </main>
+<Footer />
