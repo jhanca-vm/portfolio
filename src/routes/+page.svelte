@@ -1,12 +1,10 @@
 <script>
   import '@fontsource-variable/space-grotesk'
   import '../app.css'
-  import Header from './Header.svelte'
-  import Hero from './Hero.svelte'
-  import Projects from './Projects.svelte'
-  import Footer from './Footer.svelte'
-  import profileSm from '$lib/assets/profile-sm.webp'
-  import profileMd from '$lib/assets/profile-md.webp'
+  import Header from './header.svelte'
+  import Hero from './hero.svelte'
+  import Projects from './projects.svelte'
+  import Footer from './footer.svelte'
 
   export let data
 </script>
@@ -19,8 +17,6 @@
       'of experience, passionate about building accessible web apps that ' +
       'users love.'}
   />
-  <link rel="preload" href={profileSm} as="image" media="(max-width: 639px)" />
-  <link rel="preload" href={profileMd} as="image" media="(min-width: 640px)" />
 </svelte:head>
 
 <Header />

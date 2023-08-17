@@ -1,7 +1,7 @@
 <script>
-  import GitHub from '$lib/icons/GitHub.svelte'
-  import LinkedIn from '$lib/icons/LinkedIn.svelte'
-  import Twitter from '$lib/icons/Twitter.svelte'
+  import GitHub from '$lib/icons/github.svelte'
+  import LinkedIn from '$lib/icons/linkedin.svelte'
+  import Twitter from '$lib/icons/twitter.svelte'
 
   const socialMedia = [
     { name: 'GitHub', url: 'github.com/jhanca-vm', icon: GitHub },

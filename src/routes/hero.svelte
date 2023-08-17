@@ -1,7 +1,7 @@
 <script>
-  import Rings from '$lib/Rings.svelte'
-  import Circle from '$lib/Circle.svelte'
-  import Name from '$lib/Name.svelte'
+  import Rings from '$lib/rings.svelte'
+  import Circle from '$lib/circle.svelte'
+  import Name from '$lib/name.svelte'
   import profileMd from '$lib/assets/profile-md.webp'
   import profileSm from '$lib/assets/profile-sm.webp'
 </script>
@@ -15,7 +15,7 @@
   />
   <picture
     class="absolute inset-x-0 top-0 -z-10 mx-auto w-40 sm:left-auto sm:w-60
-      md:w-72"
+      md:w-72 md:bg-default-300"
   >
     <source
       srcset={profileMd}
