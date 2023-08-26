@@ -2,7 +2,8 @@
 
 ## Developing
 
-Once you've installed dependencies with `pnpm i`, start a development server:
+Once you've installed dependencies with `pnpm install`, start a development
+server:
 
 ```bash
 pnpm dev

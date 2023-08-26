@@ -1,12 +1,12 @@
-import maker from '$lib/assets/maker.webp'
-import ticTacToe from '$lib/assets/tic-tac-toe.webp'
+import coffeeroasters from '$lib/assets/coffeeroasters.webp'
+import buscoderecho from '$lib/assets/buscoderecho.webp'
 import type { PageLoad } from './$types'
 
 export const prerender = true
 
 export const load: PageLoad = async () => ({
   projects: [
-    { id: 'maker', name: 'maker', image: maker },
-    { id: 'tic-tac-toe', name: 'Tic Tac Toe', image: ticTacToe }
+    { id: 'coffeeroasters', name: 'Coffeeroasters', image: coffeeroasters },
+    { name: 'buscoderecho.com', image: buscoderecho, url: 'buscoderecho.com' }
   ]
 })

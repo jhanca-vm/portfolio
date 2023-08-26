@@ -13,27 +13,36 @@
     <span class="h-px flex-grow bg-default-100" />
   </h2>
   <div class="grid gap-y-10 sm:grid-cols-2 sm:gap-x-6 lg:gap-x-8">
-    {#each data as { id, name, image }}
+    {#each data as { id, name, image, url }}
       <article>
-        <img src={image} alt="" width="500" height="375" loading="lazy" />
+        <img
+          class="rounded-md"
+          src={image}
+          alt=""
+          width="500"
+          height="375"
+          loading="lazy"
+        />
         <h3 class="mt-5 text-2xl font-bold uppercase">{name}</h3>
         <div class="mt-2 flex gap-x-8 font-medium uppercase tracking-widest">
           <a
             class="link"
-            href={`https://${id}-jvm.vercel.app`}
+            href={`https://${url || `${id}.jhanca-vm.site`}`}
             target="_blank"
             rel="noreferrer"
           >
             View Project
           </a>
-          <a
-            class="link"
-            href={`https://github.com/jhanca-vm/${id}`}
-            target="_blank"
-            rel="noreferrer"
-          >
-            View Code
-          </a>
+          {#if id}
+            <a
+              class="link"
+              href={`https://github.com/jhanca-vm/${id}`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              View Code
+            </a>
+          {/if}
         </div>
       </article>
     {/each}
