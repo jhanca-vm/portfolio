@@ -1,0 +1,92 @@
+---
+import profileSm from '../assets/profile-sm.webp'
+import profileXs from '../assets/profile-xs.webp'
+
+const cyValues = [40, 52, 65, 77, 89]
+---
+
+<section
+  class:list={[
+    'pt-73 text-center sm:text-left sm:(pt-19.25 pb-18) md:(pt-14 pb-21.75)',
+    'lg:(pt-18 pb-24)'
+  ]}
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    class:list={[
+      'stroke-default-100/25 absolute top-31 -left-85 -z-1',
+      'sm:(top-22 -left-67) lg:(top-29 -left-25)'
+    ]}
+    width="530"
+    height="129"
+    fill="none"
+  >
+    {cyValues.map(cy => <ellipse cx="265" cy={cy} rx="264.5" ry="39.5" />)}
+  </svg>
+  <picture
+    class:list={[
+      'absolute top-0 inset-x-0 -z-1 w-40 mx-auto flex',
+      'sm:(mr-0 w-60 bg-default-300) md:w-76 lg:w-75'
+    ]}
+  >
+    <source
+      srcset={profileSm.src}
+      media="(min-width: 640px)"
+      width={profileSm.width}
+      height={profileSm.height}
+    />
+    <img
+      src={profileXs.src}
+      alt=""
+      width={profileXs.width}
+      height={profileXs.height}
+    />
+  </picture>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    class:list={[
+      'circle stroke-default-100 absolute top-56 -right-16 sm:top-79.5',
+      'md:top-109.25 lg:top-107.25'
+    ]}
+    width="129"
+    height="129"
+    fill="none"
+  >
+    <circle cx="830.5" cy="585.5" r="64" transform="translate(-766 -521)">
+    </circle>
+  </svg>
+  <h1
+    class:list={[
+      'text-10 -tracking-0.0284em sm:w-100 md:(w-140 text-18 leading-120%)',
+      'lg:(w-180 text-22 leading-110%)'
+    ]}
+  >
+    Nice to <span class="md:(block -mt-4) lg:inline">{'meet you! I’m '}</span>
+    <strong
+      class:list={[
+        'underline underline-primary underline-offset-6 md:underline-offset-10'
+      ]}>Jhan Viloria</strong
+    >.
+  </h1>
+  <p
+    class:list={[
+      'mt-6 font-medium text-default-200 sm:(mt-8 w-88) md:(w-108 text-lg)',
+      'lg:mt-12'
+    ]}
+  >
+    Based in Colombia, I’m a front‑end developer with over 2 years of
+    experience, passionate about building accessible web apps that users love.
+  </p>
+</section>
+
+<style>
+  @media (min-width: 1024px) {
+    picture {
+      right: max(2rem, calc((100% - 62.5rem) / 2));
+    }
+
+    .circle {
+      right: max(16.75rem, calc((100% - 33rem) / 2));
+    }
+  }
+</style>

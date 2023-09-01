@@ -1,0 +1,53 @@
+---
+import { Image } from 'astro:assets'
+import Link from './Link.astro'
+
+interface Project {
+  id: string
+  name?: string
+  url?: string
+}
+
+const images = await Astro.glob('../assets/previews/*')
+
+const data: Project[] = [
+  { id: 'coffeeroasters', name: 'Coffeeroasters' },
+  { id: 'buscoderecho', url: 'buscoderecho.com' }
+]
+---
+
+<section class="my-20 sm:(mt-14 mb-25) md:mb-30">
+  <h2 class="flex items-center gap-x-1em text-10 -tracking-0.0284em md:text-18">
+    Projects
+    <span class="h-px w-full bg-default-100"></span>
+  </h2>
+  <div class="mt-10 grid gap-y-10 sm:(grid-cols-2 gap-x-6) md:mt-15 lg:gap-x-8">
+    {
+      data.map(({ id, name, url }, index) => (
+        <article>
+          <Image class="rounded-lg" src={images[index].default} alt="" />
+          <h3 class="mt-5 mb-4 text-2xl uppercase">{name || url}</h3>
+          <div
+            class:list={[
+              'pb-2 flex gap-x-8 font-bold text-default-200 uppercase',
+              'leading-6.5 tracking-0.142875em sm:(pb-3 text-sm)'
+            ]}
+          >
+            <Link
+              class="underline-2 underline-primary underline-offset-12"
+              to={url || `${id}.jhanca-vm.site`}
+            >
+              View project
+            </Link>
+            <Link
+              class="underline-2 underline-primary underline-offset-12"
+              to={`github.com/jhanca-vm/${id}`}
+            >
+              View code
+            </Link>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</section>
