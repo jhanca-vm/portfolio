@@ -1,92 +1,51 @@
 ---
-import profileSm from '../assets/profile-sm.webp'
-import profileXs from '../assets/profile-xs.webp'
-
-const cyValues = [40, 52, 65, 77, 89]
+import profileMd from '../assets/profile-md.webp'
+import profile from '../assets/profile.webp'
+import Rings from './Rings.astro'
 ---
 
-<section
-  class:list={[
-    'pt-73 text-center sm:text-left sm:(pt-19.25 pb-18) md:(pt-14 pb-21.75)',
-    'lg:(pt-18 pb-24)'
-  ]}
->
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    class:list={[
-      'stroke-default-100/25 absolute top-31 -left-85 -z-1',
-      'sm:(top-22 -left-67) lg:(top-29 -left-25)'
-    ]}
-    width="530"
-    height="129"
-    fill="none"
-  >
-    {cyValues.map(cy => <ellipse cx="265" cy={cy} rx="264.5" ry="39.5" />)}
-  </svg>
+<section class="sm:(flex flex-row-reverse items-start justify-between)">
   <picture
     class:list={[
-      'absolute top-0 inset-x-0 -z-1 w-40 mx-auto flex',
-      'sm:(mr-0 w-60 bg-default-300) md:w-76 lg:w-75'
+      '-mt-25.75 mx-auto w-43.5 block sm:(-mt-15 -mx-4 w-46) md:(-mx-8 w-80.5)',
+      'lg:(-mt-18 mr-0 w-86)'
     ]}
   >
     <source
-      srcset={profileSm.src}
-      media="(min-width: 640px)"
-      width={profileSm.width}
-      height={profileSm.height}
+      srcset={profileMd.src}
+      media="(min-width: 768px)"
+      width={profileMd.width}
+      height={profileMd.height}
     />
     <img
-      src={profileXs.src}
+      src={profile.src}
       alt=""
-      width={profileXs.width}
-      height={profileXs.height}
+      width={profile.width}
+      height={profile.height}
     />
   </picture>
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
+  <div
     class:list={[
-      'circle stroke-default-100 absolute top-56 -right-16 sm:top-79.5',
-      'md:top-109.25 lg:top-107.25'
-    ]}
-    width="129"
-    height="129"
-    fill="none"
-  >
-    <circle cx="830.5" cy="585.5" r="64" transform="translate(-766 -521)">
-    </circle>
-  </svg>
-  <h1
-    class:list={[
-      'text-10 -tracking-0.0284em sm:w-100 md:(w-140 text-18 leading-120%)',
-      'lg:(w-180 text-22 leading-110%)'
+      'relative mt-10 mx-auto max-w-111 text-center sm:(mx-0 text-left flex-1)',
+      'md:mt-22 xl:max-w-177'
     ]}
   >
-    Nice to <span class="md:(block -mt-4) lg:inline">{'meet you! I’m '}</span>
-    <strong
-      class:list={[
-        'underline underline-primary underline-offset-6 md:underline-offset-10'
-      ]}>Jhan Viloria</strong
-    >.
-  </h1>
-  <p
-    class:list={[
-      'mt-6 font-medium text-default-200 sm:(mt-8 w-88) md:(w-108 text-lg)',
-      'lg:mt-12'
-    ]}
-  >
-    Based in Colombia, I’m a front‑end developer with over 2 years of
-    experience, passionate about building accessible web apps that users love.
-  </p>
+    <h1 class="text-10 tracking-tighter md:text-18 xl:(text-22 leading-[1.1] )">
+      Nice to <span class="sm:(mb-2 block) md:mb-4 xl:inline">
+        meet you! I'm
+      </span>
+      <span
+        class:list={[
+          'underline underline-offset-6 underline-primary',
+          'md:underline-offset-12'
+        ]}>Jhan Viloria</span
+      >.
+    </h1>
+    <p class="my-6 md:(mt-15 mb-9) lg:(mt-10 mb-16 max-w-111)">
+      Based in Colombia, I'm a frontend developer passionate about building
+      accessible web apps that users love.
+    </p>
+    <a class="btn mx-auto sm:mx-0" href="#contact">Contact Me</a>
+  </div>
+  <Rings class="top-31 -z-1 sm:(top-21.5 -left-66.25) lg:(top-25 -left-25)" />
 </section>
-
-<style>
-  @media (min-width: 1024px) {
-    picture {
-      right: max(2rem, calc((100% - 62.5rem) / 2));
-    }
-
-    .circle {
-      right: max(16.75rem, calc((100% - 33rem) / 2));
-    }
-  }
-</style>

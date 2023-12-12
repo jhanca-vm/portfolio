@@ -1,81 +1,40 @@
 ---
 import '@fontsource-variable/space-grotesk'
-import font from '@fontsource-variable/space-grotesk/files/space-grotesk-latin-wght-normal.woff2'
-import Header from '../components/Header.astro'
+import '../styles/base.css'
 import Hero from '../components/Hero.astro'
 import Projects from '../components/Projects.astro'
-import Footer from '../components/Footer.astro'
+import Contact from '../components/Contact.astro'
+import SocialMedia from '../components/SocialMedia.astro'
 ---
 
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" href="/favicon.png" />
-    <title>Jhan Viloria - Frontend Developer</title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <title>Jhan Viloria | Frontend Developer</title>
     <meta
       name="description"
-      content={'Based in Colombia, I’m a front‑end developer with over 2 ' +
-        'year of experience, passionate about building accessible web apps ' +
-        'that users love.'}
+      content={"Based in Colombia, I'm a frontend developer passionate about " +
+        'building accessible web apps that users love.'}
     />
     <meta name="generator" content={Astro.generator} />
-    <link
-      rel="preload"
-      href={font}
-      as="font"
-      type="font/woff2"
-      crossorigin="anonymous"
-    />
   </head>
-  <body
-    class:list={[
-      'relative overflow-hidden px-5 bg-default-400 text-default-100',
-      'sm:px-8'
-    ]}
-  >
-    <Header />
-    <main class="max-w-250 mx-auto">
-      <Hero />
-      <Projects />
+  <body class="relative overflow-x-hidden bg-neutral text-white">
+    <header class="relative pt-5 sm:pt-7 px-4 md:px-8 lg:pt-10">
+      <SocialMedia class="lg:pr-8" />
+    </header>
+    <main>
+      <div class="px-4 md:px-8 children:(mx-auto max-w-5xl)">
+        <Hero />
+        <Projects />
+      </div>
+      <Contact />
     </main>
-    <Footer />
+    <footer class="px-4 bg-secondary sm:px-8">
+      <SocialMedia
+        class="border-t pt-10 pb-12 sm:(pt-8 pb-10) lg:(pt-12 pb-16)"
+      />
+    </footer>
   </body>
 </html>
-
-<style is:global>
-  * {
-    border-style: solid;
-    border-width: 0;
-    box-sizing: border-box;
-  }
-
-  html {
-    color-scheme: dark;
-    font-family: 'Space Grotesk Variable', sans-serif;
-    min-width: 375px;
-    overflow-x: hidden;
-  }
-
-  :where(body, h1, h2, h3, p, ul) {
-    margin: 0;
-  }
-
-  p {
-    line-height: 1.625;
-  }
-
-  a {
-    color: inherit;
-  }
-
-  ul {
-    list-style: none;
-    padding: 0;
-  }
-
-  img {
-    height: auto;
-    max-width: 100%;
-  }
-</style>

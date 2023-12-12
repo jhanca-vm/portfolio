@@ -1,0 +1,22 @@
+---
+interface Props {
+  class?: string
+}
+
+const { class: className } = Astro.props
+---
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  class:list={[
+    'fill-none stroke-white/25 w-132.5 absolute right-1/2',
+    className
+  ]}
+  viewBox="0 0 530 129"
+>
+  <ellipse cx="265" cy="40" rx="264.5" ry="39.5"></ellipse>
+  <ellipse cx="265" cy="52" rx="264.5" ry="39.5"></ellipse>
+  <ellipse cx="265" cy="65" rx="264.5" ry="39.5"></ellipse>
+  <ellipse cx="265" cy="77" rx="264.5" ry="39.5"></ellipse>
+  <ellipse cx="265" cy="89" rx="264.5" ry="39.5"></ellipse>
+</svg>

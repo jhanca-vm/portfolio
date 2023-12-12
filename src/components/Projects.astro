@@ -1,50 +1,40 @@
 ---
 import { Image } from 'astro:assets'
-import Link from './Link.astro'
+import capitalize from 'just-capitalize'
 
-interface Project {
-  id: string
-  name?: string
-  url?: string
-}
+const images = await Astro.glob('../assets/*.jpg')
 
-const images = await Astro.glob('../assets/previews/*')
-
-const data: Project[] = [
-  { id: 'coffeeroasters', name: 'Coffeeroasters' },
-  { id: 'buscoderecho', url: 'buscoderecho.com' }
+const projects = [
+  { id: 'coffeeroasters', url: 'https://coffeeroasters.jhanca-vm.site' },
+  { id: 'omanxus', url: 'https://omanxus.pages.dev/' }
 ]
 ---
 
-<section class="my-20 sm:(mt-14 mb-25) md:mb-30">
-  <h2 class="flex items-center gap-x-1em text-10 -tracking-0.0284em md:text-18">
-    Projects
-    <span class="h-px w-full bg-default-100"></span>
-  </h2>
-  <div class="mt-10 grid gap-y-10 sm:(grid-cols-2 gap-x-6) md:mt-15 lg:gap-x-8">
+<section class="my-20 sm:my-25 lg:my-35">
+  <h2 class="text-10 tracking-tighter sm:text-18 lg:text-22">Projects</h2>
+  <div
+    class:list={[
+      'mt-10 grid gap-y-10 sm:(mt-15 grid-cols-2 gap-x-6)',
+      'lg:(mt-20 gap-x-7.5)'
+    ]}
+  >
     {
-      data.map(({ id, name, url }, index) => (
+      projects.map(({ id, url }, index) => (
         <article>
-          <Image class="rounded-lg" src={images[index].default} alt="" />
-          <h3 class="mt-5 mb-4 text-2xl uppercase">{name || url}</h3>
-          <div
-            class:list={[
-              'pb-2 flex gap-x-8 font-bold text-default-200 uppercase',
-              'leading-6.5 tracking-0.142875em sm:(pb-3 text-sm)'
-            ]}
-          >
-            <Link
-              class="underline-2 underline-primary underline-offset-12"
-              to={url || `${id}.jhanca-vm.site`}
+          <Image src={images[index].default} alt="" />
+          <h3 class="my-5 text-2xl uppercase">{capitalize(id)}</h3>
+          <div class="flex gap-x-7">
+            <a class="btn" href={url} target="_blank" rel="noreferrer">
+              View Project
+            </a>
+            <a
+              class="btn"
+              href={`https://github.com/jhanca-vm/${id}`}
+              target="_blank"
+              rel="noreferrer"
             >
-              View project
-            </Link>
-            <Link
-              class="underline-2 underline-primary underline-offset-12"
-              to={`github.com/jhanca-vm/${id}`}
-            >
-              View code
-            </Link>
+              View Code
+            </a>
           </div>
         </article>
       ))
