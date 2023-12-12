@@ -16,6 +16,13 @@ html {
   margin: 0;
 }
 
+body {
+  background-image: radial-gradient(theme('colors.secondary'), transparent 60%);
+  background-position: 32rem 24rem;
+  background-repeat: no-repeat;
+  background-size: 48rem 28rem;
+}
+
 :where(ul, button) {
   padding: 0;
 }
@@ -82,6 +89,7 @@ img {
   display: block;
   font-weight: 700;
   letter-spacing: 0.142875em;
+  padding-left: 0.1em;
   padding-bottom: 0.5rem;
   text-transform: uppercase;
   transition: color 150ms cubic-bezier(0.4, 0, 0.2, 1);
