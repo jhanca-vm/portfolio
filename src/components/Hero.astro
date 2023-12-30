@@ -42,12 +42,17 @@ import Rings from './Rings.astro'
       >.
     </h1>
     <p class="my-6 md:(mt-15 mb-9) lg:(mt-10 mb-16 max-w-111)">
-      Based in Colombia, I'm a frontend developer passionate about building
-      accessible web apps that users love.
+      Based in Colombia, I'm a Frontend Developer with +2 year of experience
+      creating websites using technologies such as React, Next.js and Svelte.
     </p>
     <a class="btn mx-auto sm:mx-0" href="#contact">Contact Me</a>
   </div>
-  <Rings
-    class="top-31 -z-1 blur-1 sm:(top-21.5 -left-66.25) lg:(top-25 -left-25)"
-  />
+  <Rings class="top-31 -z-1 sm:(top-21.5 -left-66.25) lg:(top-25 -left-25)" />
+  <div
+    class:list={[
+      'absolute -z-10 right-0 top-0 size-500px translate-y-25% rounded-full',
+      'bg-primary/25 opacity-25 blur-50px xl:-translate-x-25%'
+    ]}
+  >
+  </div>
 </section>

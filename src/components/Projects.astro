@@ -11,7 +11,14 @@ const projects = [
 ---
 
 <section class="my-20 sm:my-25 lg:(mt-26 mb-35)">
-  <h2 class="text-10 tracking-tighter sm:text-18 lg:text-22">Projects</h2>
+  <h2
+    class:list={[
+      'flex items-center gap-1em text-10 tracking-tighter sm:text-18 lg:text-22'
+    ]}
+  >
+    Projects
+    <span class="flex-grow h-px bg-white"></span>
+  </h2>
   <div
     class:list={[
       'mt-10 grid gap-y-10 sm:(mt-15 grid-cols-2 gap-x-6)',

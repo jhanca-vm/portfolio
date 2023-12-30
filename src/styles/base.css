@@ -12,15 +12,13 @@ html {
   scroll-behavior: smooth;
 }
 
-:where(body, h1, h2, h3, p, ul) {
-  margin: 0;
+body {
+  background-image: radial-gradient(theme('colors.secondary') 1px, transparent 1px);
+  background-size: 16px 16px;
 }
 
-body {
-  background-image: radial-gradient(theme('colors.secondary'), transparent 60%);
-  background-position: 32rem 24rem;
-  background-repeat: no-repeat;
-  background-size: 48rem 28rem;
+:where(body, h1, h2, h3, p, ul) {
+  margin: 0;
 }
 
 :where(ul, button) {

@@ -1,25 +1,25 @@
 {
   "name": "portfolio",
   "type": "module",
-  "version": "4.1.0",
+  "version": "4.2.0",
   "scripts": {
     "dev": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.3.1",
-    "@astrojs/svelte": "^5.0.0",
+    "@astrojs/check": "^0.3.4",
+    "@astrojs/svelte": "^5.0.3",
     "@fontsource-variable/space-grotesk": "^5.0.16",
-    "astro": "^4.0.3",
+    "astro": "^4.0.8",
     "just-capitalize": "^3.2.0",
-    "prettier": "^3.1.0",
-    "prettier-plugin-astro": "^0.12.2",
+    "prettier": "^3.1.1",
+    "prettier-plugin-astro": "^0.12.3",
     "prettier-plugin-svelte": "^3.1.2",
-    "sharp": "^0.33.0",
+    "sharp": "^0.33.1",
     "svelte": "4.2.8",
     "typescript": "^5.3.3",
-    "unocss": "^0.58.0",
-    "valibot": "^0.23.0"
+    "unocss": "^0.58.2",
+    "valibot": "^0.25.0"
   }
 }
