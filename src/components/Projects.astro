@@ -4,10 +4,7 @@ import capitalize from 'just-capitalize'
 
 const images = await Astro.glob('../assets/*.jpg')
 
-const projects = [
-  { id: 'coffeeroasters', url: 'https://coffeeroasters.jhanca-vm.site' },
-  { id: 'omanxus', url: 'https://omanxus.pages.dev/' }
-]
+const projects = ['photosnap', 'coffeeroasters']
 ---
 
 <section class="my-20 sm:my-25 lg:(mt-26 mb-35)">
@@ -26,12 +23,17 @@ const projects = [
     ]}
   >
     {
-      projects.map(({ id, url }, index) => (
+      projects.map((id, index) => (
         <article>
           <Image src={images[index].default} alt="" />
           <h3 class="my-5 text-2xl uppercase">{capitalize(id)}</h3>
           <div class="flex gap-x-7">
-            <a class="btn" href={url} target="_blank" rel="noreferrer">
+            <a
+              class="btn"
+              href={`https://${id}.jhanca-vm.site`}
+              target="_blank"
+              rel="noreferrer"
+            >
               View Project
             </a>
             <a
