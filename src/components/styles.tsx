@@ -2,19 +2,28 @@ import { transform } from 'lightningcss'
 
 export default async function Styles() {
   const isBuild = Deno.args[0] === 'build'
-  const decoder = new TextDecoder()
 
-  let css = await Deno.readFile('src/style.css')
+  let css = await Promise.all(
+    ['base', 'components', 'utilities'].map((file) => {
+      const path = `src/styles/${file}.css`
+
+      return Deno[isBuild ? 'readFile' : 'readTextFile'](path)
+    }),
+  )
 
   if (isBuild) {
-    const { code } = transform({ code: css, minify: true })
+    const decoder = new TextDecoder()
 
-    css = code
+    css = css.map((layer) => {
+      const { code } = transform({ code: layer, minify: true })
+
+      return decoder.decode(code)
+    })
   }
 
   return (
     <style
-      dangerouslySetInnerHTML={{ __html: decoder.decode(css) }}
+      dangerouslySetInnerHTML={{ __html: css.join(isBuild ? '' : '\n') }}
     />
   )
 }

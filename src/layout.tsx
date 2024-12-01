@@ -12,7 +12,7 @@ export default function Layout({ children }: PropsWithChildren) {
           content={'Desarrollador web especializado en React, Next.js y ' +
             'Astro en el frontend, y Node.js en el backend.'}
         />
-        <title>Portafolio - Jhan Viloria</title>
+        <title>Jhan Viloria | Desarrollador web</title>
         <link rel='icon' href='/favicon.png' />
         <link
           rel='preload'

@@ -1,0 +1,27 @@
+.grid {
+  display: grid;
+}
+
+.txt-sm {
+  font-size: 3.5rem;
+}
+
+.lh-none {
+  line-height: 1;
+}
+
+.txt-react {
+  color: oklch(0.77 0.1 214.64);
+}
+
+.txt-next {
+  color: oklch(1 0 0);
+}
+
+.txt-astro {
+  color: oklch(0.58 0.2 26.18);
+}
+
+.txt-node {
+  color: oklch(0.73 0.13 134.83);
+}
