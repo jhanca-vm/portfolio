@@ -1,9 +1,9 @@
-import type { Child } from 'hono/jsx'
+import type { ComponentChildren } from 'preact'
 
 interface Props {
   class?: string
   href: string
-  children: Child
+  children: ComponentChildren
 }
 
 export default function Link({ class: className, href, children }: Props) {

@@ -1,20 +1,21 @@
 {
-  "$schema": "https://deno.land/x/deno/cli/schemas/config-file.v1.json",
-  "imports": {
-    "hono": "jsr:@hono/hono@^4.6.12",
-    "lightningcss": "https://esm.sh/lightningcss-wasm@1.28.2"
-  },
-  "tasks": {
-    "dev": "deno run --allow-net --allow-read --watch main.tsx dev",
-    "build": "deno run --allow-net --allow-read --allow-write main.tsx build",
-    "preview": "deno run --allow-net --allow-read main.tsx"
+  "$schema": "https://deno.land/x/deno@v2.1.2/cli/schemas/config-file.v1.json",
+  "compilerOptions": {
+    "jsx": "precompile",
+    "jsxImportSource": "preact"
   },
   "fmt": {
     "semiColons": false,
     "singleQuote": true
   },
-  "compilerOptions": {
-    "jsx": "precompile",
-    "jsxImportSource": "hono/jsx"
+  "imports": {
+    "@std/http": "jsr:@std/http@^1.0.11",
+    "lightningcss": "npm:lightningcss@^1.28.2",
+    "preact": "npm:preact@^10.25.1",
+    "preact-render-to-string": "npm:preact-render-to-string@^6.5.11"
+  },
+  "tasks": {
+    "build": "deno run -ERW --allow-run --allow-ffi main.ts",
+    "dev": "deno run -ERN --allow-run --allow-ffi --watch=src server.ts"
   }
 }

@@ -13,7 +13,7 @@ export default function Hero() {
             <Link class='txt-next' href='nextjs.org'>Next.js</Link> y{' '}
             <Link class='txt-astro' href='astro.build'>Astro</Link>{' '}
             en el frontend, y{' '}
-            <Link class='txt-node' href='txt-nodejs.org'>Node.js</Link>{' '}
+            <Link class='txt-node' href='nodejs.org'>Node.js</Link>{' '}
             en el backend.
           </p>
           <p class='experience'>
