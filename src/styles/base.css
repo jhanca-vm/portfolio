@@ -6,9 +6,9 @@
 }
 
 :root {
-  --color-base: oklch(0.13 0.01 0);
-  --color-neutral: oklch(0.92 0.01 0);
-  --color-primary: oklch(0.6 0.03 294.21);
+  --color-base: oklch(0.1323 0.0096 297.64);
+  --color-neutral: oklch(0.9241 0.0068 295.44);
+  --color-primary: oklch(0.6004 0.0319 294.15);
 }
 
 * {
@@ -25,7 +25,7 @@ html {
 body {
   background: radial-gradient(
       ellipse 80% 80% at 50% -20%,
-      oklch(0.19 0.02 290.56),
+      oklch(0.1918 0.0161 290.52),
       var(--color-base)
     )
     no-repeat, var(--color-base);
@@ -67,9 +67,9 @@ a {
 ol {
   border-image: linear-gradient(
       in oklab,
-      oklch(0.65 0.21 25.04),
-      oklch(0.73 0.16 36.7),
-      oklch(0.87 0.13 86.92),
+      oklch(0.6549 0.2088 25.04),
+      oklch(0.7262 0.1637 36.7),
+      oklch(0.8657 0.1312 86.94),
       transparent
     )
     1;
