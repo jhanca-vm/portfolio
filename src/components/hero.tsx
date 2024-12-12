@@ -17,14 +17,17 @@ export default function Hero() {
             en el backend.
           </p>
           <p class='experience'>
-            <strong class='h3 txt-sm lh-none'>Años de experiencia</strong> 2+
+            <strong class='h3 font-medium txt-sm lh-none'>
+              Años de experiencia
+            </strong>{' '}
+            2+
           </p>
         </article>
         <ol class='grid'>
           {data.experience.map(({ jobTitle, company, dates }) => (
             <li class='txt-sm'>
               <span class='marker' />
-              <h3 class='h3 lh-none'>{jobTitle}</h3>
+              <h3 class='h3 font-medium lh-none'>{jobTitle}</h3>
               <p>{company}</p>
               <p>{dates}</p>
             </li>

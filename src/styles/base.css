@@ -9,6 +9,8 @@
   --color-base: oklch(0.1323 0.0096 297.64);
   --color-neutral: oklch(0.9241 0.0068 295.44);
   --color-primary: oklch(0.6004 0.0319 294.15);
+  --gradient: oklch(0.6549 0.2088 25.04), oklch(0.7262 0.1637 36.7),
+    oklch(0.8657 0.1312 86.94);
 }
 
 * {
@@ -20,6 +22,9 @@
 html {
   font: 300 25% / 1.5 'Outfit', sans-serif;
   min-width: 375px;
+  @media (width >= 540px) {
+    min-width: 680px;
+  }
 }
 
 body {
@@ -32,7 +37,7 @@ body {
   color: var(--color-neutral);
   font-size: 4.5rem;
   padding-inline: 5.5rem;
-  @media (width >= 640px) {
+  @media (width >= 540px) {
     padding-inline: 10rem;
   }
 }
@@ -47,9 +52,9 @@ h1 {
   -webkit-text-stroke-width: 1.5px;
   font-size: 25rem;
   font-weight: 800;
-  margin-block: 15rem;
+  margin-block: 15rem 25rem;
   text-align: center;
-  @media (width >= 768px) {
+  @media (width >= 540px) {
     font-size: 30rem;
   }
   @media (width >= 1024px) {
@@ -57,7 +62,18 @@ h1 {
   }
 }
 
+h2 {
+  font-size: 8.5rem;
+  font-weight: 500;
+  line-height: 1.15;
+  margin-bottom: 12.5rem;
+  @media (width >= 540px) {
+    font-size: 12.5rem;
+  }
+}
+
 a {
+  color: inherit;
   text-underline-offset: 2px;
   &:not(:hover) {
     text-decoration: none;
@@ -65,20 +81,13 @@ a {
 }
 
 ol {
-  border-image: linear-gradient(
-      in oklab,
-      oklch(0.6549 0.2088 25.04),
-      oklch(0.7262 0.1637 36.7),
-      oklch(0.8657 0.1312 86.94),
-      transparent
-    )
-    1;
+  border-image: linear-gradient(in oklab, var(--gradient), transparent) 1;
   border-image-width: 0 0 0 0.5rem;
   list-style: none;
   margin-left: 1.25rem;
   padding: 0 0 7.5rem 0;
   row-gap: 7.5rem;
-  @media (width >= 640px) {
+  @media (width >= 540px) {
     border-image-width: 0 0.5rem 0 0;
     grid-column-start: 3;
     margin-inline: 0 1.25rem;
@@ -89,7 +98,7 @@ ol {
 li {
   padding-left: 3.75rem;
   position: relative;
-  @media (width >= 640px) {
+  @media (width >= 540px) {
     padding-inline: 0 3.75rem;
   }
   h3 {
@@ -102,4 +111,10 @@ li {
 
 p:not(:has(strong)) {
   color: color-mix(in oklab, var(--color-neutral) 75%, transparent);
+}
+
+footer {
+  font-size: 4rem;
+  padding-block: 20rem 5rem;
+  text-align: center;
 }

@@ -10,5 +10,12 @@
       "company": "WolfPack Labs • Remoto",
       "dates": "Ago 2022 - Mar 2023"
     }
+  ],
+  "projects": [
+    {
+      "id": "tech-book-club",
+      "name": "Tech book club",
+      "url": "https://techbookclub.pages.dev"
+    }
   ]
 }

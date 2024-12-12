@@ -1,5 +1,6 @@
 import type { ComponentChildren } from 'preact'
 import Hero from './components/hero.tsx'
+import Projects from './components/projects.tsx'
 
 interface Props {
   children?: ComponentChildren
@@ -30,7 +31,11 @@ export default function Page({ children }: Props) {
       <body>
         <main>
           <Hero />
+          <Projects />
         </main>
+        <footer>
+          <p>© 2024 Jhan Viloria</p>
+        </footer>
       </body>
     </html>
   )
