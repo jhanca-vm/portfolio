@@ -4,7 +4,7 @@ export default function Projects() {
   return (
     <section>
       <h2>
-        Proyectos <span class='txt-gradient'>recientes</span>
+        Proyectos <span class='txt-gradient'>destacados</span>
       </h2>
       <div class='projects grid'>
         {data.projects.map(({ id, url, name }) => (
