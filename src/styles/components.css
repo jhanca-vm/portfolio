@@ -1,6 +1,6 @@
 .summary {
   align-items: baseline;
-  margin-block: 20rem 15rem;
+  margin-block: 20rem;
   row-gap: 10rem;
   @media (width >= 540px) {
     grid-template-columns: 1fr 0.5fr 1fr;
@@ -54,26 +54,25 @@
     width: 100%;
   }
   div {
-    align-items: center;
+    align-items: flex-end;
     display: flex;
     justify-content: space-between;
-    padding: 0.5rem 1.5rem 0;
+    padding: 1rem 2rem 0.25rem;
   }
-  a:first-child {
-    font-size: 5.5rem;
-    &:hover {
-      text-decoration: underline;
-    }
-    svg {
-      width: 5rem;
-    }
-  }
-  a:last-child {
+  a {
     transition: color 150ms ease;
-    &:not(:hover) {
-      color: var(--color-primary);
+    text-decoration: none;
+    &:hover {
+      color: oklch(0.7262 0.1637 36.7);
     }
-    svg {
+    &:first-child {
+      font-size: 5.5rem;
+      padding-bottom: 0.75rem;
+      svg {
+        width: 5rem;
+      }
+    }
+    &:last-child svg {
       width: 6rem;
     }
   }

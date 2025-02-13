@@ -9,7 +9,6 @@ export default function Projects() {
       <div class='projects grid'>
         {data.projects.map(({ id, url, name }) => (
           <article>
-            <img src={`/images/${id}.webp`} alt='' loading='lazy' />
             <div>
               <a
                 class='font-medium'
@@ -52,6 +51,7 @@ export default function Projects() {
                 </svg>
               </a>
             </div>
+            <img src={`/images/${id}.webp`} alt='' loading='lazy' />
           </article>
         ))}
       </div>

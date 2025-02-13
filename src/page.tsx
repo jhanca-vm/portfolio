@@ -34,7 +34,7 @@ export default function Page({ children }: Props) {
           <Projects />
         </main>
         <footer>
-          <p>© 2024 Jhan Viloria</p>
+          <p>© 2025 Jhan Viloria</p>
         </footer>
       </body>
     </html>

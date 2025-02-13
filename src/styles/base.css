@@ -1,15 +1,16 @@
 @font-face {
   font-display: fallback;
-  font-family: 'Outfit';
+  font-family: "Outfit";
   font-weight: 100 900;
-  src: url('/outfit.woff2') format('woff2-variations');
+  src: url("/outfit.woff2") format("woff2-variations");
 }
 
 :root {
   --color-base: oklch(0.1323 0.0096 297.64);
   --color-neutral: oklch(0.9241 0.0068 295.44);
   --color-primary: oklch(0.6004 0.0319 294.15);
-  --gradient: oklch(0.6549 0.2088 25.04), oklch(0.7262 0.1637 36.7),
+  --gradient:
+    oklch(0.6549 0.2088 25.04), oklch(0.7262 0.1637 36.7),
     oklch(0.8657 0.1312 86.94);
 }
 
@@ -20,7 +21,9 @@
 }
 
 html {
-  font: 300 25% / 1.5 'Outfit', sans-serif;
+  font:
+    300 25% / 1.5 "Outfit",
+    sans-serif;
   min-width: 375px;
   @media (width >= 540px) {
     min-width: 680px;
@@ -28,12 +31,14 @@ html {
 }
 
 body {
-  background: radial-gradient(
-      ellipse 80% 80% at 50% -20%,
-      oklch(0.1918 0.0161 290.52),
-      var(--color-base)
-    )
-    no-repeat, var(--color-base);
+  background:
+    radial-gradient(
+        ellipse 80% 80% at 50% -20%,
+        oklch(0.2611 0.0167 290.28),
+        var(--color-base)
+      )
+      no-repeat,
+    var(--color-base);
   color: var(--color-neutral);
   font-size: 4.5rem;
   padding-inline: 5.5rem;
@@ -115,6 +120,6 @@ p:not(:has(strong)) {
 
 footer {
   font-size: 4rem;
-  padding-block: 20rem 5rem;
+  padding-block: 24rem 5rem;
   text-align: center;
 }

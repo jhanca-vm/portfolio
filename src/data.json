@@ -13,6 +13,11 @@
   ],
   "projects": [
     {
+      "id": "en-la-mano",
+      "name": "En la mano",
+      "url": "https://98.80.199.169.nip.io/"
+    },
+    {
       "id": "tech-book-club",
       "name": "Tech book club",
       "url": "https://techbookclub.pages.dev"
