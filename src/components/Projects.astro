@@ -1,0 +1,63 @@
+---
+import { Image } from 'astro:assets'
+import enLaMano from '../assets/en-la-mano.jpg'
+import techBookClub from '../assets/tech-book-club.jpg'
+import omanxus from '../assets/omanxus.jpg'
+import Section from './Section.astro'
+import IconGithub from './IconGithub.astro'
+import IconExternalLink from './IconExternalLink.astro'
+
+const data: [string, string, string, ImageMetadata][] = [
+  ['en-la-mano', 'En La Mano', 'https://98.80.199.169.nip.io', enLaMano],
+  [
+    'tech-book-club',
+    'Tech Book Club',
+    'https://techbookclub.pages.dev',
+    techBookClub
+  ],
+  ['omanxus', 'Omanxus', 'https://omanxus.pages.dev', omanxus]
+]
+---
+
+<Section class="md:col-span-2" title="Proyectos destacados">
+  <div class="mt-9 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    {
+      data.map(([id, name, url, screenshot]) => (
+        <article
+          class:list={[
+            'overflow-hidden h-62 rounded-3xl bg-neutral-900 sm:last:hidden',
+            'lg:last:block'
+          ]}
+        >
+          <div class="pt-5 pl-6 pr-5 flex items-center justify-between">
+            <img
+              class="w-7 aspect-square"
+              src={`${url}/favicon.${id === 'omanxus' ? 'ico' : 'png'}`}
+              alt=""
+            />
+            <div class="flex gap-3">
+              <a
+                class="not-hover:text-neutral-300"
+                href={`https://github.com/jhanca-vm/${id}`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <IconGithub />
+              </a>
+              <a
+                class="not-hover:text-neutral-300"
+                href={url}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <IconExternalLink />
+              </a>
+            </div>
+          </div>
+          <h3 class="mt-2 mb-6 ml-6 font-medium text-lg">{name}</h3>
+          <Image class="rounded translate-x-6" src={screenshot} alt="" />
+        </article>
+      ))
+    }
+  </div>
+</Section>

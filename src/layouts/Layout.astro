@@ -1,0 +1,47 @@
+---
+import '@fontsource-variable/outfit'
+import outfit from '@fonts/outfit/files/outfit-latin-wght-normal.woff2'
+
+interface Props {
+  title: string
+}
+
+const { title } = Astro.props
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta
+      name="description"
+      content={'Con más de dos años de experiencia, especializado en ' +
+        'tecnologías como React, Next.js, Astro y Node.js'}
+    />
+    <link rel="icon" href="/favicon.png" />
+    <link rel="preload" href={outfit} as="font" type="font/woff2" crossorigin />
+  </head>
+  <body class="p-5 bg-neutral-900 text-neutral-100 sm:p-8">
+    <main class="max-w-4xl mx-auto grid gap-6 md:grid-cols-2">
+      <slot />
+    </main>
+    <footer class="mt-12 font-light text-center text-sm text-neutral-200">
+      Copyright © 2025 Jhan Viloria
+    </footer>
+  </body>
+</html>
+
+<style is:global>
+  @import 'tailwindcss';
+
+  @theme {
+    --font-sans: 'Outfit Variable';
+  }
+
+  @layer base {
+    html {
+      color-scheme: dark;
+    }
+  }
+</style>

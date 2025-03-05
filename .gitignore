@@ -1,2 +1,4 @@
-public/index.html
-deno.lock
+node_modules/
+.astro/
+dist/
+pnpm-lock.yaml
