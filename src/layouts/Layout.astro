@@ -3,10 +3,12 @@ import '@fontsource-variable/outfit'
 import outfit from '@fonts/outfit/files/outfit-latin-wght-normal.woff2'
 
 interface Props {
+  class?: string
   title: string
+  description: string
 }
 
-const { title } = Astro.props
+const { class: className, title, description } = Astro.props
 ---
 
 <html lang="es">
@@ -14,16 +16,12 @@ const { title } = Astro.props
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
-    <meta
-      name="description"
-      content={'Con más de dos años de experiencia, especializado en ' +
-        'tecnologías como React, Next.js, Astro y Node.js'}
-    />
+    <meta name="description" content={description} />
     <link rel="icon" href="/favicon.png" />
     <link rel="preload" href={outfit} as="font" type="font/woff2" crossorigin />
   </head>
   <body class="p-5 bg-neutral-900 text-neutral-100 sm:p-8">
-    <main class="max-w-4xl mx-auto grid gap-6 md:grid-cols-2">
+    <main class={className}>
       <slot />
     </main>
     <footer class="mt-12 font-light text-center text-sm text-neutral-200">

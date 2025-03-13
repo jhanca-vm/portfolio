@@ -1,0 +1,109 @@
+---
+import { getCollection, render } from 'astro:content'
+import { Image } from 'astro:assets'
+import { parse } from '@formkit/tempo'
+import Layout from '@/layouts/Layout.astro'
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog')
+
+  return posts.map((post) => ({ params: { id: post.id }, props: { post } }))
+}
+
+const { post } = Astro.props
+const { Content } = await render(post)
+---
+
+<Layout title={post.data.title} description={post.data.description}>
+  <article class="max-w-4xl mx-auto grid gap-7">
+    <header class="relative">
+      <Image
+        class="aspect-9/5 object-cover rounded-3xl"
+        src={post.data.cover}
+        alt=""
+      />
+      <div
+        class:list={[
+          'relative max-w-md -mt-6 mx-6 p-6 pt-5 rounded-3xl bg-neutral-800',
+          'md:absolute md:inset-x-0 md:bottom-6 md:p-7 md:pt-6'
+        ]}
+      >
+        <time
+          class:list={[
+            'pb-3 block border-b border-neutral-600 text-sm text-neutral-200'
+          ]}
+          datetime={post.data.date}
+        >
+          {parse(post.data.date).toLocaleString('es', { dateStyle: 'long' })}
+        </time>
+        <h1 class="my-3 font-semibold text-3xl tracking-wide">
+          {post.data.title}
+        </h1>
+        <p class="font-light text-neutral-200 tracking-wide">
+          {post.data.description}
+        </p>
+      </div>
+    </header>
+    <main
+      class:list={[
+        'p-6 rounded-3xl bg-neutral-800 tracking-wide md:mx-12 md:pt-7',
+        'md:px-9'
+      ]}
+    >
+      <Content />
+    </main>
+    <footer
+      class:list={[
+        'p-6 rounded-3xl bg-neutral-800 tracking-wide md:mx-12 md:py-7',
+        'md:px-9'
+      ]}
+    >
+      <h2 class="font-medium text-xl">Bibliografía</h2>
+      {
+        post.data.bibliography.map(
+          ({ author, year, title, editorial, link }) => (
+            <p class="mt-4 mb-3 pl-7 -indent-7 font-light text-neutral-200">
+              {author} ({year}). <em>{title}</em> {editorial}{' '}
+              <a class="break-all underline hover:text-neutral-100" href={link}>
+                {link}
+              </a>
+            </p>
+          )
+        )
+      }
+    </footer>
+  </article>
+</Layout>
+
+<style>
+  main {
+    h2 {
+      font-size: var(--text-2xl);
+      font-weight: 500;
+      line-height: var(--text-2xl-line-height);
+      &:not(:first-child) {
+        margin-top: 2rem;
+      }
+    }
+    ul,
+    p {
+      margin-block: 1rem;
+    }
+    ul {
+      list-style-type: disc;
+      padding-left: 1.75rem;
+    }
+    li,
+    p {
+      color: var(--color-neutral-200);
+      font-weight: 300;
+    }
+    li {
+      margin-block: 0.5rem;
+    }
+    strong {
+      color: var(--color-neutral-100);
+      font-weight: 500;
+    }
+  }
+</style>
