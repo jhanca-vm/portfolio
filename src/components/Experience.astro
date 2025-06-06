@@ -1,28 +1,56 @@
----
-import Section from './Section.astro'
----
-
-<Section title="Experiencia">
-  <ul class="font-light leading-none text-neutral-200">
-    <li class="pb-3 border-b border-neutral-600">
-      <div class="flex justify-between">
-        <h3 class="font-medium text-neutral-100">Desarrollador Web</h3>
-        <p class="text-sm">Remoto</p>
-      </div>
-      <div class="flex justify-between">
+<div>
+  <h2>Experiencia</h2>
+  <ul>
+    <li>
+      <hgroup>
+        <h3>Desarrollador Web</h3>
+        <p>Remoto</p>
+      </hgroup>
+      <div>
         <p>Freelancer</p>
-        <p class="text-sm">abr. 2023 - actualidad</p>
+        <p>abr 2023 - actualidad</p>
       </div>
     </li>
-    <li class="pt-3.5">
-      <div class="flex justify-between">
-        <h3 class="font-medium text-neutral-100">Desarrollador Frontend</h3>
-        <p class="text-sm">Remoto</p>
-      </div>
-      <div class="flex justify-between">
+    <li>
+      <hgroup>
+        <h3>Desarrollador Frontend</h3>
+        <p>Remoto</p>
+      </hgroup>
+      <div>
         <p>WolfPack Labs</p>
-        <p class="text-sm">ago. 2022 - mar. 2023</p>
+        <p>ago 2022 - mar 2023</p>
       </div>
     </li>
   </ul>
-</Section>
+</div>
+
+<style>
+  h2 {
+    font-size: 24px;
+    text-align: left;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  li {
+    border-top: 1px solid var(--accent-color);
+    font-weight: 400;
+    margin-top: 16px;
+    padding-top: 12px;
+    & > * {
+      display: flex;
+      justify-content: space-between;
+      &:last-child {
+        margin-top: 4px;
+      }
+    }
+  }
+
+  h3 {
+    font-size: inherit;
+    font-weight: 600;
+  }
+</style>

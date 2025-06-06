@@ -1,21 +1,70 @@
 ---
-import Layout from '../layouts/Layout.astro'
-import Section from '../components/Section.astro'
-import Experiencie from '../components/Experience.astro'
+import Layout from '../components/Layout.astro'
 import Projects from '../components/Projects.astro'
+import Link from '../components/Link.astro'
+import Experience from '../components/Experience.astro'
+import IconLinkedin from '../assets/linkedin.svg'
+import IconGithub from '../assets/github.svg'
 ---
 
-<Layout title="Jhan Viloria - Desarrollador Web">
-  <Section>
-    <h1 class="mb-3 font-semibold text-2xl lg:text-3xl">
-      ¡Hola! Soy Jhan Viloria, desarrollador web
-    </h1>
-    <p class="font-light text-balance text-neutral-200">
-      Cuento con más de dos años de experiencia y me especializo en teconologías
-      como <strong>React</strong>, <strong>Next.js</strong>,
-      <strong>Astro</strong> y <strong>Node.js</strong>
-    </p>
-  </Section>
-  <Experiencie />
+<Layout>
+  <section>
+    <img src="/images/profile.webp" alt="" width="225" height="225" />
+    <hgroup>
+      <h1>Jhan Viloria</h1>
+      <p>Desarrollador Web</p>
+    </hgroup>
+    <div>
+      <Link url="www.linkedin.com/in/jhanviloria/" label="LinkedIn">
+        <IconLinkedin />
+      </Link>
+      <Link url="github.com/jhanca-vm" label="GitHub">
+        <IconGithub />
+      </Link>
+    </div>
+    <Experience />
+  </section>
   <Projects />
 </Layout>
+
+<style>
+  section {
+    margin-top: 80px;
+    padding-top: 0;
+    text-align: center;
+    @media (width >= 1024px) {
+      position: sticky;
+      top: 124px;
+    }
+  }
+
+  img {
+    border-radius: 16px;
+    margin: -80px auto 0;
+    width: 160px;
+  }
+
+  h1 {
+    color: var(--primary-color);
+    font-size: 32px;
+    margin-block: 8px 4px;
+  }
+
+  p {
+    border-top: 1px solid var(--accent-color);
+    display: inline-block;
+    font-weight: 600;
+    padding: 8px 4px 0;
+  }
+
+  div {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-block: 20px 48px;
+  }
+
+  svg {
+    height: 28px;
+  }
+</style>

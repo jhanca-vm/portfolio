@@ -1,0 +1,92 @@
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portafolio - Jhan Viloria</title>
+    <link rel="icon" href="/favicon.png" />
+    <link
+      rel="preload"
+      href="/quicksand.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  @font-face {
+    font-display: swap;
+    font-family: Quicksand;
+    font-weight: 300 700;
+    src: url('/quicksand.woff2') format('woff2-variations');
+    unicode-range:
+      U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+      U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+      U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+
+  :root {
+    --primary-color: oklch(0.8179 0.079 87.71);
+    --secondary-color: oklch(0.4039 0.0052 56.25);
+    --accent-color: oklch(0.702 0.0147 325.73);
+    --neutral-color: oklch(0.9577 0.0051 48.69);
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+  }
+
+  body {
+    background:
+      top 64px right / 640px no-repeat url('/images/shape.svg'),
+      linear-gradient(96deg, var(--primary-color), var(--accent-color));
+    color: var(--neutral-color);
+    display: grid;
+    font:
+      500 16px Quicksand,
+      sans-serif;
+    gap: 32px;
+    padding: 32px 20px;
+    @media (width >= 540px) {
+      gap: 44px 48px;
+      padding: 44px 48px;
+    }
+    @media (width >= 1024px) {
+      grid-template-columns: 400px 1fr;
+    }
+  }
+
+  section {
+    backdrop-filter: blur(4px);
+    background-color: color-mix(
+      in oklab,
+      var(--secondary-color) 92%,
+      transparent
+    );
+    border-radius: 16px;
+    height: fit-content;
+    justify-self: center;
+    padding: 28px 20px;
+    width: min(100%, 520px);
+    @media (width >= 540px) {
+      padding: 32px;
+    }
+    @media (width >= 1024px) {
+      width: 100%;
+    }
+    &:nth-child(2) {
+      @media (width >= 1280px) {
+        margin-top: 80px;
+      }
+    }
+  }
+
+  img {
+    height: auto;
+  }
+</style>

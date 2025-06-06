@@ -1,0 +1,18 @@
+---
+const { url, label } = Astro.props
+---
+
+<a href={`https://${url}`} target="_blank" rel="noreferrer" aria-label={label}>
+  <slot />
+</a>
+
+<style>
+  a {
+    color: var(--accent-color);
+    display: flex;
+    transition: color 150ms ease;
+    &:hover {
+      color: color-mix(in oklab, var(--neutral-color) 64%, transparent);
+    }
+  }
+</style>
