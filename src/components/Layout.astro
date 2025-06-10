@@ -42,30 +42,33 @@
   }
 
   body {
-    background:
-      top 64px right / 640px no-repeat url('/images/shape.svg'),
-      linear-gradient(96deg, var(--primary-color), var(--accent-color));
+    background: linear-gradient(
+      96deg,
+      var(--primary-color),
+      var(--accent-color)
+    );
     color: var(--neutral-color);
     display: grid;
     font:
       500 16px Quicksand,
       sans-serif;
     gap: 32px;
+    min-height: 100vh;
     padding: 32px 20px;
     @media (width >= 540px) {
       gap: 44px 48px;
       padding: 44px 48px;
     }
     @media (width >= 1024px) {
+      align-content: center;
       grid-template-columns: 400px 1fr;
     }
   }
 
   section {
-    backdrop-filter: blur(4px);
     background-color: color-mix(
       in oklab,
-      var(--secondary-color) 92%,
+      var(--secondary-color) 96%,
       transparent
     );
     border-radius: 16px;
@@ -78,11 +81,6 @@
     }
     @media (width >= 1024px) {
       width: 100%;
-    }
-    &:nth-child(2) {
-      @media (width >= 1280px) {
-        margin-top: 80px;
-      }
     }
   }
 

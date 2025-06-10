@@ -4,6 +4,7 @@ import IconExternalLink from '../assets/external-link.svg'
 import Link from './Link.astro'
 
 const list = [
+  ['En La Mano', '98.80.199.169.nip.io'],
   ['Tech book club', 'techbookclub.pages.dev'],
   ['Omanxus', 'omanxus.pages.dev']
 ]
@@ -36,21 +37,26 @@ const list = [
 </section>
 
 <style>
-  h2 {
-    color: var(--primary-color);
-    font-size: 24px;
-    line-height: 1;
-    margin-bottom: 36px;
-    @media (width >= 540px) {
-      font-size: 28px;
+  section {
+    background-image: url('/images/shape.svg');
+    background-position: right bottom;
+    background-repeat: no-repeat;
+    background-size: contain;
+    & > div {
+      display: grid;
+      gap: 40px 32px;
+      @media (width >= 1280px) {
+        grid-template-columns: 1fr 1fr;
+      }
     }
   }
 
-  section > div {
-    display: grid;
-    gap: 40px 32px;
-    @media (width >= 1280px) {
-      grid-template-columns: 1fr 1fr;
+  h2 {
+    font-size: 24px;
+    line-height: 1;
+    margin-bottom: 40px;
+    @media (width >= 540px) {
+      font-size: 28px;
     }
   }
 
@@ -58,10 +64,11 @@ const list = [
     align-items: center;
     display: flex;
     gap: 16px;
-    padding: 8px 8px 0;
+    padding: 4px 8px 0;
   }
 
   h3 {
+    color: var(--primary-color);
     flex-grow: 1;
     font-weight: 600;
     @media (width >= 540px) {
