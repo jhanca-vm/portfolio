@@ -1,6 +1,6 @@
 ---
 import Layout from '../components/Layout.astro'
-import Projects from '../components/Projects.astro'
+import ProjectList from '../components/ProjectList.astro'
 import Link from '../components/Link.astro'
 import Experience from '../components/Experience.astro'
 import IconLinkedin from '../assets/linkedin.svg'
@@ -24,7 +24,7 @@ import IconGithub from '../assets/github.svg'
     </div>
     <Experience />
   </section>
-  <Projects />
+  <ProjectList />
 </Layout>
 
 <style>
@@ -45,16 +45,23 @@ import IconGithub from '../assets/github.svg'
   }
 
   h1 {
+    border-bottom: 1px solid;
+    border-image: linear-gradient(
+        to right,
+        transparent,
+        var(--accent-color),
+        transparent
+      )
+      1;
     color: var(--primary-color);
+    display: inline-block;
     font-size: 32px;
-    margin-block: 8px 4px;
+    margin-block: 8px;
+    padding-bottom: 4px;
   }
 
   p {
-    border-top: 1px solid var(--accent-color);
-    display: inline-block;
     font-weight: 600;
-    padding: 8px 4px 0;
   }
 
   div {
@@ -65,6 +72,6 @@ import IconGithub from '../assets/github.svg'
   }
 
   svg {
-    height: 28px;
+    height: 24px;
   }
 </style>
