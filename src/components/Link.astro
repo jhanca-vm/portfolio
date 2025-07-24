@@ -1,18 +1,19 @@
 ---
-const { url, label } = Astro.props
+interface Props {
+  class?: string
+  to: string
+  label?: string
+}
+
+const { class: className, to, label } = Astro.props
 ---
 
-<a href={`https://${url}`} target="_blank" rel="noreferrer" aria-label={label}>
+<a
+  class={className}
+  href={`https://${to}`}
+  target="_blank"
+  rel="noreferrer"
+  aria-label={label}
+>
   <slot />
 </a>
-
-<style>
-  a {
-    color: var(--accent-color);
-    display: flex;
-    transition: color 150ms ease;
-    &:hover {
-      color: color-mix(in oklab, var(--neutral-color) 80%, transparent);
-    }
-  }
-</style>

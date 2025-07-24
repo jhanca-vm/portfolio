@@ -1,0 +1,75 @@
+---
+import techBookClub from '../assets/tech-book-club.webp'
+import coffeeroasters from '../assets/coffeeroasters.webp'
+import IconLink from '../assets/icons/link.svg'
+import IconCode from '../assets/icons/code.svg'
+import Image from './Image.astro'
+import Link from './Link.astro'
+
+const data: [ImageMetadata, string, string, string][] = [
+  [
+    techBookClub,
+    'Landing page desarrollada con Astro.',
+    'techbookclub.pages.dev',
+    'tech-book-club'
+  ],
+  [
+    coffeeroasters,
+    'Sitio web desarrollado con Svelte y Tailwind CSS.',
+    'coffeeroasters.pages.dev',
+    'coffeeroasters'
+  ]
+]
+---
+
+<section class="max-w-5xl px-6 mx-auto sm:px-10">
+  <h2 class="mb-12 pl-3 font-display font-medium text-4xl/none">
+    Proyectos destacados
+  </h2>
+  <div class="grid gap-10 md:grid-cols-2">
+    {
+      data.map(([image, description, url, id]) => (
+        <article class="overflow-hidden relative rounded-xl shadow-xs">
+          <Link to={url} label="Sitio web">
+            <Image
+              class="w-full transition-transform duration-300 hover:scale-102"
+              metadata={image}
+            />
+          </Link>
+          <div class="absolute bottom-0 inset-x-0 flex items-end gap-4">
+            <p
+              class:list={[
+                'pt-2 pb-3 px-4 grow rounded-bl-xl rounded-tr-xl',
+                'bg-primary/80 backdrop-blur-md text-pretty leading-tight'
+              ]}
+            >
+              {description}
+            </p>
+            <div class="mr-4 flex flex-col">
+              <Link
+                class:list={[
+                  'p-2 rounded-t-xl bg-secondary/80 backdrop-blur-sm',
+                  'transition-colors hover:bg-secondary'
+                ]}
+                to={url}
+                label="Sitio web"
+              >
+                <IconLink class="w-4" aria-hidden="true" />
+              </Link>
+              <Link
+                class:list={[
+                  'p-2 bg-secondary/80 backdrop-blur-sm transition-colors',
+                  'hover:bg-secondary'
+                ]}
+                to={`github.com/jhanca-vm/${id}`}
+                label="Repositorio"
+              >
+                <IconCode class="w-4" aria-hidden="true" />
+              </Link>
+            </div>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</section>

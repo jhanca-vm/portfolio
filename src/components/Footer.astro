@@ -1,0 +1,31 @@
+---
+import IconLinkedin from '../assets/icons/linkedin.svg'
+import IconGithub from '../assets/icons/github.svg'
+import Link from '../components/Link.astro'
+---
+
+<footer
+  class="max-w-5xl mx-auto p-6 flex justify-between text-default/60 sm:px-10"
+>
+  <p>© 2025 Jhan Viloria.</p>
+  <ul class="flex gap-3">
+    <li>
+      <Link
+        class="transition-colors hover:text-default/80"
+        to="www.linkedin.com/in/jhanviloria/"
+        label="LinkedIn"
+      >
+        <IconLinkedin class="h-5" aria-hidden="true" />
+      </Link>
+    </li>
+    <li>
+      <Link
+        class="transition-colors hover:text-default/80"
+        to="github.com/jhanca-vm"
+        label="GitHub"
+      >
+        <IconGithub class="h-5" aria-hidden="true" />
+      </Link>
+    </li>
+  </ul>
+</footer>

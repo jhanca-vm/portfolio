@@ -1,0 +1,11 @@
+@import './fonts.css';
+@import 'tailwindcss';
+
+@theme {
+  --color-accent: oklch(0.9702 0 0);
+  --color-default: oklch(0.0855 0.0444 304.75);
+  --color-primary: oklch(0.8262 0.1493 74.13);
+  --color-secondary: oklch(0.8599 0.0744 244.49);
+  --font-display: Teko, sans-serif;
+  --font-sans: Kanit, sans-serif;
+}

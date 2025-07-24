@@ -1,13 +1,16 @@
 {
   "name": "portfolio",
-  "version": "6.2.0",
-  "type": "module",
+  "version": "6.3.0",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview"
   },
   "dependencies": {
-    "astro": "^5.9.4"
+    "@fontsource-variable/teko": "^5.2.6",
+    "@fontsource/kanit": "^5.2.6",
+    "@tailwindcss/vite": "^4.1.11",
+    "astro": "^5.12.2",
+    "tailwindcss": "^4.1.11"
   }
 }
