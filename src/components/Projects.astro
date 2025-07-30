@@ -1,12 +1,20 @@
 ---
+import enLaMano from '../assets/en-la-mano.webp'
 import techBookClub from '../assets/tech-book-club.webp'
 import coffeeroasters from '../assets/coffeeroasters.webp'
+import pokemonExplorer from '../assets/pokemon-explorer.webp'
 import IconLink from '../assets/icons/link.svg'
 import IconCode from '../assets/icons/code.svg'
 import Image from './Image.astro'
 import Link from './Link.astro'
 
 const data: [ImageMetadata, string, string, string][] = [
+  [
+    enLaMano,
+    'Sitio web para solicitar préstamos en línea.',
+    'enlamano.com.uy',
+    'en-la-mano'
+  ],
   [
     techBookClub,
     'Landing page desarrollada con Astro.',
@@ -18,6 +26,12 @@ const data: [ImageMetadata, string, string, string][] = [
     'Sitio web desarrollado con Svelte y Tailwind CSS.',
     'coffeeroasters.pages.dev',
     'coffeeroasters'
+  ],
+  [
+    pokemonExplorer,
+    'Sitio web desarrollado con Next.js.',
+    'pokemon-explorer-jvm.vercel.app',
+    'pokemon-explorer'
   ]
 ]
 ---
