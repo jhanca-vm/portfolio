@@ -1,41 +1,31 @@
 ---
-import kanit from '@fontsource/kanit/files/kanit-latin-300-normal.woff2?url'
-import teko from '@fontsource-variable/teko/files/teko-latin-wght-normal.woff2?url'
+import { Font } from 'astro:assets'
 import Hero from '../components/Hero.astro'
 import Projects from '../components/Projects.astro'
 import Footer from '../components/Footer.astro'
-import '../styles/global.css'
+import '../style.css'
+
+const description =
+  'Cuento con 3 años de experiencia (Freelance). Especializado en el ' +
+  'ecosistema de JavaScript (React, Next.js, Node.js), con sólidos ' +
+  'conocimientos en Java y SQL. Gracias a mi faceta autodidacta, poseo una ' +
+  'alta capacidad de aprendizaje y autogestión, logrando transformar ' +
+  'requerimientos de clientes en aplicaciones funcionales y escalables.'
 ---
 
 <html lang="es">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width" />
     <title>Portafolio - Jhan Viloria</title>
-    <meta
-      name="description"
-      content={'Desarrollador web con tres años de experiencia, ' +
-        'especializado en React, Next.js y Astro.'}
-    />
-    <link rel="icon" href="/favicon.png" />
-    <link rel="preload" href={kanit} as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href={teko} as="font" type="font/woff2" crossorigin />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <Font cssVariable="--font-be-vietnam-pro" preload />
   </head>
-  <body
-    class:list={[
-      'min-h-svh bg-primary/15 bg-fixed bg-radial-[at_top_right]',
-      'from-secondary/50 to-80% font-light text-default'
-    ]}
-  >
-    <main class="mb-3 pt-12 md:pt-15">
-      <Hero />
-      <Projects />
-    </main>
-    <hr
-      class:list={[
-        'h-px max-w-5xl mt-20 mx-auto border-none bg-linear-90 via-default/20'
-      ]}
-    />
+  <body class="text-slate-500">
+    <Hero description={description} />
+    <Projects />
     <Footer />
   </body>
 </html>

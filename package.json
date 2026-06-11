@@ -1,16 +1,25 @@
 {
   "name": "portfolio",
-  "version": "6.3.2",
+  "version": "7.0.0",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview"
   },
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "11.5.3",
+      "onFail": "download"
+    }
+  },
   "dependencies": {
-    "@fontsource-variable/teko": "^5.2.7",
-    "@fontsource/kanit": "^5.2.8",
-    "@tailwindcss/vite": "^4.1.18",
-    "astro": "^5.16.11",
-    "tailwindcss": "^4.1.18"
+    "@tailwindcss/vite": "4.3.0",
+    "astro": "6.4.5",
+    "sharp": "0.35.0",
+    "tailwindcss": "4.3.0"
   }
 }

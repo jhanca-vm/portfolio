@@ -1,31 +1,26 @@
 ---
-import IconLinkedin from '../assets/icons/linkedin.svg'
-import IconGithub from '../assets/icons/github.svg'
-import Link from '../components/Link.astro'
+import IconGithub from '../assets/github.svg'
 ---
 
-<footer
-  class="max-w-5xl mx-auto p-6 flex justify-between text-default/60 sm:px-10"
->
-  <p>© 2026 Jhan Viloria</p>
-  <ul class="flex gap-3.5">
-    <li>
-      <Link
-        class="transition-colors hover:text-default"
-        to="www.linkedin.com/in/jhanviloria/"
-        label="LinkedIn"
-      >
-        <IconLinkedin class="h-5" aria-hidden="true" />
-      </Link>
-    </li>
-    <li>
-      <Link
-        class="transition-colors hover:text-default"
-        to="github.com/jhanca-vm"
-        label="GitHub"
-      >
-        <IconGithub class="h-5" aria-hidden="true" />
-      </Link>
-    </li>
-  </ul>
+<footer class="px-6 text-sm sm:px-9 md:px-12">
+  <div
+    class:list={[
+      'py-9 max-w-6xl mx-auto flex items-center justify-between border-t',
+      'border-slate-200'
+    ]}
+  >
+    <p class="text-slate-600">© 2026 Jhan Viloria</p>
+    <a
+      class="transition-colors hover:text-blue-600/80"
+      href="https://github.com/jhanca-vm"
+      target="_blank"
+      rel="noreferrer"
+      aria-label="GitHub"
+    >
+      <IconGithub
+        class="h-5 fill-none stroke-2 stroke-current"
+        aria-hidden="true"
+      />
+    </a>
+  </div>
 </footer>

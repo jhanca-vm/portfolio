@@ -1,47 +1,39 @@
 ---
-import photo from '../assets/photo.webp'
-import Image from './Image.astro'
+import { Image } from 'astro:assets'
+import profile from '../assets/profile.png'
+
+interface Props {
+  description: string
+}
 ---
 
 <section
   class:list={[
-    'max-w-5xl mx-auto px-6 flex flex-col gap-6 sm:px-10 md:flex-row md:gap-10'
+    'pt-9 px-6 bg-linear-to-b from-red-500/5 to-amber-500/5 sm:pt-12 sm:px-9',
+    'md:px-12 xl:pt-18'
   ]}
 >
-  <Image
-    class="w-3xs object-cover drop-shadow-2xl max-md:mx-auto"
-    metadata={photo}
-  />
-  <div class="grow md:self-center">
-    <hgroup class="font-display max-md:text-center">
-      <p class="text-3xl uppercase">Jhan Carlos Viloria Murillo</p>
-      <h1 class="font-medium text-5xl">Desarrollador Web</h1>
-    </hgroup>
-    <div class="w-full mt-4 p-6 pt-5 rounded-xl shadow-xs bg-accent/80">
-      <h2 class="mb-4 font-display font-normal text-3xl/none tracking-wide">
-        Experiencia
-      </h2>
-      <ul class="relative grid gap-3 text-lg/tight">
-        <li class="absolute inset-y-1 -z-1 w-4" aria-hidden="true">
-          <span class="h-full w-0.5 mx-auto block bg-default"></span>
-        </li>
-        <li class="grid grid-cols-[1rem_1fr] gap-2">
-          <span class="mt-1 size-4 rounded-full bg-primary"></span>
-          <p>
-            Desarrollador Web Freelance
-            <span class="inline-block">(abr 2023 - actualidad)</span>
-          </p>
-        </li>
-        <li class="grid grid-cols-[1rem_1fr] gap-2">
-          <span class="relative -z-1 mt-1 size-4 rounded-full bg-default"
-          ></span>
-          <p>
-            Desarrollador Frontend en
-            <span class="inline-block">Wolfpack Labs</span>
-            <span class="inline-block">(ago 2022 - mar 2023)</span>
-          </p>
-        </li>
-      </ul>
+  <div class="max-w-6xl mx-auto flex gap-6 xl:gap-12 max-xl:flex-col">
+    <div class="max-w-prose">
+      <hgroup class="font-semibold">
+        <p class="mb-3 text-lg text-pretty">
+          ¡Hola! Soy Jhan Carlos Viloria Murillo
+        </p>
+        <h1 class="text-3xl text-balance md:text-5xl/tight">
+          Programador de aplicaciones de software
+        </h1>
+      </hgroup>
+      <p class="mt-6 text-slate-700">
+        {Astro.props.description}
+      </p>
     </div>
+    <figure class="max-w-96 xl:mx-auto">
+      <Image
+        class="grayscale-25 drop-shadow-md mask-l-from-60%"
+        src={profile}
+        alt=""
+        priority
+      />
+    </figure>
   </div>
 </section>
