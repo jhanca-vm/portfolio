@@ -1,10 +1,17 @@
 ---
 import { Image } from 'astro:assets'
+import fxChecker from '../assets/fx-checker.jpg'
 import healthy from '../assets/healthy.jpg'
 import enlamano from '../assets/enlamano.jpg'
 import techbookclub from '../assets/techbookclub.jpg'
 
 const list: [string, string, ImageMetadata, string][] = [
+  [
+    'fx_checker',
+    'Aplicación web de conversión de divisas.',
+    fxChecker,
+    'fx-checker.pages.dev'
+  ],
   [
     'healthy',
     'Sitio web de recetas saludables.',
@@ -60,7 +67,14 @@ const list: [string, string, ImageMetadata, string][] = [
                 Ver código
               </a>
             </div>
-            <Image class="mt-auto rounded-md" src={image} alt="" />
+            <Image
+              class:list={[
+                'mt-auto rounded-tl-md rounded-br-md border-t-2 border-l-2',
+                'border-white'
+              ]}
+              src={image}
+              alt=""
+            />
           </li>
         ))
       }
