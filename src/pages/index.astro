@@ -1,8 +1,8 @@
 ---
 import { Font } from 'astro:assets'
+import Footer from '../components/Footer.astro'
 import Hero from '../components/Hero.astro'
 import Projects from '../components/Projects.astro'
-import Footer from '../components/Footer.astro'
 import '../style.css'
 
 const description =
@@ -15,12 +15,12 @@ const description =
 
 <html lang="es">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
     <title>Portafolio - Jhan Viloria</title>
-    <meta name="description" content={description} />
-    <meta name="generator" content={Astro.generator} />
-    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="description" content={description}>
+    <meta name="generator" content={Astro.generator}>
+    <link rel="icon" type="image/png" href="/favicon.png">
     <Font cssVariable="--font-be-vietnam-pro" preload />
   </head>
   <body class="text-slate-500">
