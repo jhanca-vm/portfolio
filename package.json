@@ -1,21 +1,26 @@
 {
   "name": "portfolio",
-  "version": "7.0.2",
+  "version": "8.0.0",
   "type": "module",
   "scripts": {
-    "build": "astro build",
+    "build": "rsbuild build",
     "check": "biome check",
-    "dev": "astro dev",
-    "preview": "astro preview"
+    "dev": "rsbuild",
+    "preview": "rsbuild preview"
   },
   "dependencies": {
-    "@biomejs/biome": "2.5.6",
-    "@tailwindcss/vite": "4.3.3",
-    "astro": "7.1.6",
-    "sharp": "0.35.3",
-    "tailwindcss": "4.3.3"
+    "@fontsource/be-vietnam-pro": "5.3.0",
+    "clsx": "2.1.1",
+    "preact": "10.29.8"
   },
-  "engines": {
-    "node": ">=22.12.0"
+  "devDependencies": {
+    "@biomejs/biome": "2.5.7",
+    "@rsbuild/core": "2.1.10",
+    "@rsbuild/plugin-preact": "2.0.0",
+    "@rsbuild/plugin-svgr": "2.0.5",
+    "@rsbuild/plugin-tailwindcss": "2.0.3",
+    "@types/node": "^24.13.3",
+    "preact-render-to-string": "6.7.0",
+    "typescript": "7.0.2"
   }
 }
