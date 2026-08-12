@@ -12,10 +12,11 @@ export default function Footer() {
       >
         <p>© 2026 Jhan Viloria</p>
         <a
-          class="text-slate-600 transition-colors hover:text-blue-600/80"
+          class="text-slate-600 transition-colors hover:text-blue-600"
           href="https://github.com/jhanca-vm"
           target="_blank"
           rel="noreferrer"
+          aria-label="GitHub"
         >
           <Github class="h-5" />
         </a>

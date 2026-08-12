@@ -1,7 +1,11 @@
 import clsx from 'clsx/lite'
 import profile from './profile.avif'
 
-export default function Hero() {
+interface Props {
+  description: string
+}
+
+export default function Hero({ description }: Props) {
   return (
     <section
       class={clsx(
@@ -19,14 +23,7 @@ export default function Hero() {
               Programador de aplicaciones de software
             </h1>
           </hgroup>
-          <p class="mt-6 text-slate-700">
-            Cuento con 3 años de experiencia (Freelance). Especializado en el
-            ecosistema de JavaScript (React, Next.js, Node.js), con sólidos
-            conocimientos en Java y SQL. Gracias a mi faceta autodidacta, poseo
-            una alta capacidad de aprendizaje y autogestión, logrando
-            transformar requerimientos de clientes en aplicaciones funcionales y
-            escalables.
-          </p>
+          <p class="mt-6 text-slate-700">{description}</p>
         </div>
         <figure class="max-w-96 xl:mx-auto">
           <img
@@ -35,6 +32,7 @@ export default function Hero() {
             alt=""
             width={400}
             height={400}
+            fetchpriority="high"
           />
         </figure>
       </div>

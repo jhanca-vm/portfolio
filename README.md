@@ -1,6 +1,8 @@
 # Portfolio
 
-Static site built with Preact and Rsbuild.
+Static site built with [Preact](https://preactjs.com) and
+[Rsbuild](https://rsbuild.rs), inspired by [Astro](https://astro.build) and
+[Next.js](https://nextjs.org).
 
 ## Setup
 
@@ -12,7 +14,8 @@ pnpm install
 
 ## Get started
 
-Start the dev server, and the app will be available at [http://localhost:3000](http://localhost:3000).
+Start the dev server, and the app will be available at
+[http://localhost:3000](http://localhost:3000).
 
 ```bash
 pnpm run dev

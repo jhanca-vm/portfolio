@@ -46,12 +46,12 @@ export default function Projects() {
                 'pt-9 pl-9 flex flex-col rounded-md bg-slate-300/20 lg:pl-12'
               }
             >
-              <p class="mr-9 font-medium text-pretty md:text-lg">
+              <p class="mr-9 font-medium text-slate-600 text-pretty md:text-lg">
                 {description}
               </p>
               <div class="mt-3 mb-9 flex gap-3 font-semibold text-sm">
                 <a
-                  class="text-blue-600/80 underline-offset-2 hover:underline"
+                  class="text-blue-600 underline-offset-2 hover:underline"
                   href={`https://${domain}`}
                   target="_blank"
                   rel="noreferrer"
@@ -59,7 +59,7 @@ export default function Projects() {
                   Visitar sitio
                 </a>
                 <a
-                  class="text-red-500/80 underline-offset-2 hover:underline"
+                  class="text-red-700 underline-offset-2 hover:underline"
                   href={`https://github.com/jhanca-vm/${id}`}
                   target="_blank"
                   rel="noreferrer"

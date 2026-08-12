@@ -1,8 +1,33 @@
-import type { RsbuildPlugin } from '@rsbuild/core'
+import type { HtmlRspackPlugin, RsbuildPlugin, Rspack } from '@rsbuild/core'
+
+interface RsbuildHtmlPlugin {
+  getHTMLPlugin: () => typeof HtmlRspackPlugin
+}
 
 export const pluginSsg = (): RsbuildPlugin => ({
   name: 'plugin-ssg',
   setup(api) {
+    api.onAfterCreateCompiler(({ compiler }) => {
+      const { compilers } = compiler as Rspack.MultiCompiler
+      const web = compilers[1]
+      const plugin = web.options.plugins.find(
+        (plugin) => plugin?.constructor.name === 'RsbuildHtmlPlugin'
+      ) as RsbuildHtmlPlugin | undefined
+
+      if (plugin) {
+        web.hooks.compilation.tap('SsgPlugin', (compilation) => {
+          const hooks = plugin.getHTMLPlugin().getCompilationHooks(compilation)
+
+          hooks.afterTemplateExecution.tap('SsgPlugin', (data) => {
+            data.html = `<!doctype html>${api.useExposed('plugin-prerender')}`
+            data.headTags = data.headTags.slice(4)
+
+            return data
+          })
+        })
+      }
+    })
+
     if (process.env.NODE_ENV === 'production') {
       api.processAssets({ stage: 'optimize' }, ({ assets, compilation }) => {
         for (const name in assets) {
@@ -10,25 +35,5 @@ export const pluginSsg = (): RsbuildPlugin => ({
         }
       })
     }
-
-    api.modifyHTML((_, { compilation }) => {
-      let html = api.useExposed('plugin-prerender') as string
-
-      function add(tag: string) {
-        html = html.replace('</head>', `${tag}</head>`)
-      }
-
-      for (const { info, name } of compilation.getAssets()) {
-        switch (info.assetType) {
-          case 'javascript':
-            add(`<script defer src="/${name}"></script>`)
-            break
-          case 'extract-css':
-            add(`<link href="/${name}" rel="stylesheet"/>`)
-        }
-      }
-
-      return `<!doctype html>${html}`
-    })
   }
 })

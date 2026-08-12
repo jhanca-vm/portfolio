@@ -14,17 +14,17 @@ export default defineConfig({
     node: {
       plugins: [pluginPrerender()],
       output: { emitAssets: false, target: 'node' },
-      tools: { rspack: { output: { library: { type: 'modern-module' } } } }
+      tools: {
+        cssLoader: { esModule: false },
+        rspack: { output: { library: { type: 'commonjs-static' } } }
+      }
     },
     web: {
       plugins: [pluginSsg()],
       tools: { rspack: { dependencies: ['node'] } }
     }
   },
-  dev: {
-    hmr: false,
-    watchFiles: { paths: ['plugins/**/*', 'app/page.tsx'], type: 'restart' }
-  },
+  dev: { watchFiles: { paths: ['app/**/*'] } },
   source: { entry: { index: './app/page.tsx' } },
   html: { favicon: './app/favicon.svg' },
   server: { host: true }

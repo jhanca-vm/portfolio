@@ -1,3 +1,4 @@
+import { createContext, Script } from 'node:vm'
 import type { RsbuildPlugin } from '@rsbuild/core'
 import { type FunctionComponent, h } from 'preact'
 import { renderToStaticMarkup } from 'preact-render-to-string'
@@ -11,9 +12,12 @@ export const pluginPrerender = (): RsbuildPlugin => ({
         for (const name in assets) {
           if (!name.endsWith('.js')) continue
 
-          const code = assets[name].buffer().toString('base64')
-          const module = await import(`data:text/javascript;base64,${code}`)
-          const Page: FunctionComponent = module.default
+          const script = new Script(assets[name].source() as string)
+          const context = createContext({ exports: {} })
+
+          script.runInContext(context)
+
+          const Page: FunctionComponent = context.exports.default
 
           api.expose('plugin-prerender', renderToStaticMarkup(h(Page, {})))
           compilation.deleteAsset(name)
