@@ -16,7 +16,10 @@ export default defineConfig({
       output: { emitAssets: false, target: 'node' },
       tools: {
         cssLoader: { esModule: false },
-        rspack: { output: { library: { type: 'commonjs-static' } } }
+        rspack: {
+          output: { library: { type: 'commonjs-static' } },
+          stats: { errors: false }
+        }
       }
     },
     web: {
@@ -24,7 +27,12 @@ export default defineConfig({
       tools: { rspack: { dependencies: ['node'] } }
     }
   },
-  dev: { watchFiles: { paths: ['app/**/*'] } },
+  dev: {
+    watchFiles: [
+      { paths: 'plugins/**/*', type: 'restart' },
+      { paths: 'app/**/*' }
+    ]
+  },
   source: { entry: { index: './app/page.tsx' } },
   html: { favicon: './app/favicon.svg' },
   server: { host: true }

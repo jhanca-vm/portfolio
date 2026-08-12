@@ -19,7 +19,10 @@ export const pluginSsg = (): RsbuildPlugin => ({
           const hooks = plugin.getHTMLPlugin().getCompilationHooks(compilation)
 
           hooks.afterTemplateExecution.tap('SsgPlugin', (data) => {
-            data.html = `<!doctype html>${api.useExposed('plugin-prerender')}`
+            const html = api.useExposed('plugin-prerender')
+
+            if (html) data.html = `<!doctype html>${html}`
+
             data.headTags = data.headTags.slice(4)
 
             return data
