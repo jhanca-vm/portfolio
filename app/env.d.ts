@@ -1,7 +1,7 @@
 declare module '*.svg' {
-  import type { FunctionComponent, SVGAttributes } from 'preact'
+  import type { FunctionComponent, SVGProps } from 'react'
 
-  const Component: FunctionComponent<SVGAttributes>
+  const Component: FunctionComponent<SVGProps<SVGSVGElement>>
 
   export default Component
 }

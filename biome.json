@@ -2,6 +2,9 @@
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
   "files": { "includes": ["**", "!**/*.svg"] },
   "vcs": { "enabled": true, "clientKind": "git", "useIgnoreFile": true },
+  "linter": {
+    "rules": { "security": { "noDangerouslySetInnerHtml": "off" } }
+  },
   "assist": { "actions": { "source": { "useSortedPackageJson": "on" } } },
   "formatter": { "indentStyle": "space" },
   "javascript": {

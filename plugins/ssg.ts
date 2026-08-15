@@ -19,11 +19,11 @@ export const pluginSsg = (): RsbuildPlugin => ({
           const hooks = plugin.getHTMLPlugin().getCompilationHooks(compilation)
 
           hooks.afterTemplateExecution.tap('SsgPlugin', (data) => {
-            const html = api.useExposed('plugin-prerender')
+            const html = api.useExposed<string>(data.outputName)
 
-            if (html) data.html = `<!doctype html>${html}`
+            if (html) data.html = html
 
-            data.headTags = data.headTags.slice(4)
+            data.headTags.splice(0, 3)
 
             return data
           })
@@ -33,8 +33,8 @@ export const pluginSsg = (): RsbuildPlugin => ({
 
     if (process.env.NODE_ENV === 'production') {
       api.processAssets({ stage: 'optimize' }, ({ assets, compilation }) => {
-        for (const name in assets) {
-          if (name.endsWith('.js')) compilation.deleteAsset(name)
+        for (const file in assets) {
+          if (file.endsWith('.js')) compilation.deleteAsset(file)
         }
       })
     }

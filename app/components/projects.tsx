@@ -1,8 +1,8 @@
 import clsx from 'clsx/lite'
-import enLaMano from './en-la-mano.avif'
-import fxChecker from './fx-checker.avif'
-import healthy from './healthy.avif'
-import techBookClub from './tech-book-club.avif'
+import enLaMano from '@/assets/en-la-mano.avif'
+import fxChecker from '@/assets/fx-checker.avif'
+import healthy from '@/assets/healthy.avif'
+import techBookClub from '@/assets/tech-book-club.avif'
 
 const list = [
   [
@@ -33,25 +33,34 @@ const list = [
 
 export default function Projects() {
   return (
-    <section class="py-24 px-6 sm:px-9 md:px-12">
-      <div class="max-w-6xl mx-auto">
-        <h2 class="flex items-center gap-9 font-semibold text-2xl md:text-3xl">
+    <section className="py-24 px-6 sm:px-9 md:px-12">
+      <div className="max-w-6xl mx-auto">
+        <h2
+          className={
+            'flex items-center gap-9 font-semibold text-2xl md:text-3xl'
+          }
+        >
           <span>Mis proyectos</span>
-          <span class="grow border-t-2 border-dashed border-slate-200" />
+          <span className="grow border-t-2 border-dashed border-slate-200" />
         </h2>
-        <ul class="mt-12 grid gap-9 md:grid-cols-2">
+        <ul className="mt-12 grid gap-9 md:grid-cols-2">
           {list.map(([id, description, domain, screenshot]) => (
             <li
-              class={
+              className={
                 'pt-9 pl-9 flex flex-col rounded-md bg-slate-300/20 lg:pl-12'
               }
+              key={id}
             >
-              <p class="mr-9 font-medium text-slate-600 text-pretty md:text-lg">
+              <p
+                className={
+                  'mr-9 font-medium text-slate-600 text-pretty md:text-lg'
+                }
+              >
                 {description}
               </p>
-              <div class="mt-3 mb-9 flex gap-3 font-semibold text-sm">
+              <div className="mt-3 mb-9 flex gap-3 font-semibold text-sm">
                 <a
-                  class="text-blue-600 underline-offset-2 hover:underline"
+                  className="text-blue-600 underline-offset-2 hover:underline"
                   href={`https://${domain}`}
                   target="_blank"
                   rel="noreferrer"
@@ -59,7 +68,7 @@ export default function Projects() {
                   Visitar sitio
                 </a>
                 <a
-                  class="text-red-700 underline-offset-2 hover:underline"
+                  className="text-red-700 underline-offset-2 hover:underline"
                   href={`https://github.com/jhanca-vm/${id}`}
                   target="_blank"
                   rel="noreferrer"
@@ -68,7 +77,7 @@ export default function Projects() {
                 </a>
               </div>
               <img
-                class={clsx(
+                className={clsx(
                   'mt-auto rounded-tl-md rounded-br-md border-t-3 border-l-3',
                   'border-slate-50'
                 )}

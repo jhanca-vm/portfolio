@@ -1,31 +1,49 @@
 import { createContext, Script } from 'node:vm'
-import { logger, type RsbuildPlugin } from '@rsbuild/core'
-import { type FunctionComponent, h } from 'preact'
-import renderToString from 'preact-render-to-string'
+import type { RsbuildEntry, RsbuildPlugin } from '@rsbuild/core'
+import { jsx } from 'react/jsx-runtime'
+import { renderToStaticMarkup } from 'react-dom/server'
 
-export const pluginPrerender = (): RsbuildPlugin => ({
+export const pluginPrerender = (entry: RsbuildEntry): RsbuildPlugin => ({
   name: 'plugin-prerender',
-  setup(api) {
-    api.processAssets({ stage: 'optimize' }, ({ assets, compilation }) => {
-      for (const name in assets) {
-        if (!name.endsWith('.js')) continue
+  async setup(api) {
+    api.modifyEnvironmentConfig((config, { mergeEnvironmentConfig }) => {
+      const source: { entry: RsbuildEntry } = { entry: {} }
 
-        const script = new Script(assets[name].source() as string)
+      for (const file in entry) {
+        source.entry[file] = {
+          import: entry[file] as string,
+          library: { type: 'commonjs-static' }
+        }
+      }
+
+      return mergeEnvironmentConfig(config, {
+        source,
+        output: { emitAssets: false, target: 'node' },
+        tools: {
+          cssLoader: { esModule: false },
+          rspack: { stats: { errors: false } },
+          swc: { jsc: { transform: { react: { development: false } } } }
+        }
+      })
+    })
+
+    api.processAssets({ stage: 'optimize' }, ({ assets, compilation }) => {
+      for (const name of compilation.entrypoints.keys()) {
+        const file = `static/js/${name}.js`
+        const script = new Script(assets[file].source() as string)
         const context = createContext({ exports: {} })
 
         try {
           script.runInContext(context)
 
-          const Page: FunctionComponent = context.exports.default
+          const Page = jsx(context.exports.default, {})
+          const html = `<!doctype html>${renderToStaticMarkup(Page)}`
 
-          api.expose('plugin-prerender', renderToString(h(Page, {})))
-
-          compilation.deleteAsset(name)
+          api.expose(`${name}.html`, html, { environment: 'web' })
+          compilation.deleteAsset(file)
         } catch (error) {
-          logger.error(error)
+          api.logger.error(error)
         }
-
-        break
       }
     })
   }
