@@ -46,19 +46,21 @@ export default function Projects() {
         <ul className="mt-12 grid gap-9 md:grid-cols-2">
           {list.map(([id, description, domain, screenshot]) => (
             <li
-              className={
-                'pt-9 pl-9 flex flex-col rounded-md bg-slate-300/20 lg:pl-12'
-              }
+              className={clsx(
+                'overflow-hidden pt-9 pl-9 flex flex-col rounded-md',
+                'bg-slate-300/20 lg:pl-12'
+              )}
               key={id}
             >
               <p
-                className={
-                  'mr-9 font-medium text-slate-600 text-pretty md:text-lg'
-                }
+                className={clsx(
+                  'mr-9 font-medium text-slate-600 text-pretty',
+                  'md:text-lg/snug'
+                )}
               >
                 {description}
               </p>
-              <div className="mt-3 mb-9 flex gap-3 font-semibold text-sm">
+              <div className="mt-3 mb-6 flex gap-3 text-sm">
                 <a
                   className="text-blue-600 underline-offset-2 hover:underline"
                   href={`https://${domain}`}
@@ -67,6 +69,7 @@ export default function Projects() {
                 >
                   Visitar sitio
                 </a>
+                |
                 <a
                   className="text-red-700 underline-offset-2 hover:underline"
                   href={`https://github.com/jhanca-vm/${id}`}
@@ -77,10 +80,9 @@ export default function Projects() {
                 </a>
               </div>
               <img
-                className={clsx(
-                  'mt-auto rounded-tl-md rounded-br-md border-t-3 border-l-3',
-                  'border-slate-50'
-                )}
+                className={
+                  'mt-auto rounded-tl-md rounded-br-md shadow-lg opacity-95'
+                }
                 src={screenshot}
                 alt=""
                 width={580}

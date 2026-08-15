@@ -9,9 +9,7 @@ import RootLayout from '@/layouts/root'
 const description =
   'Cuento con 3 años de experiencia (Freelance). Especializado en el ' +
   'ecosistema de JavaScript (React, Next.js, Node.js), con sólidos ' +
-  'conocimientos en Java y SQL. Gracias a mi faceta autodidacta, poseo una ' +
-  'alta capacidad de aprendizaje y autogestión, logrando transformar ' +
-  'requerimientos de clientes en aplicaciones funcionales y escalables.'
+  'conocimientos en Java y SQL.'
 
 export default function Home() {
   return (
