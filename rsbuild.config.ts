@@ -23,7 +23,11 @@ export default defineConfig(async () => {
     ],
     environments: {
       node: { plugins: [pluginPrerender(entry)] },
-      web: { plugins: [pluginSsg()], source: { entry } }
+      web: {
+        plugins: [pluginSsg()],
+        source: { entry },
+        html: { favicon: './app/favicon.svg' }
+      }
     },
     dev: {
       watchFiles: [
@@ -31,7 +35,6 @@ export default defineConfig(async () => {
         { paths: 'app', options: { ignored: (file) => file.endsWith('.css') } }
       ]
     },
-    html: { favicon: './app/favicon.svg' },
     server: { host: true }
   }
 })

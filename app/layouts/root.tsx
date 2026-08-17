@@ -23,26 +23,26 @@ export default function RootLayout({ title, description, children }: Props) {
       </head>
       <body className="bg-slate-50 text-slate-500">
         <main>{children}</main>
-      </body>
-      <footer className="px-6 text-sm sm:px-9 md:px-12">
-        <div
-          className={clsx(
-            'py-9 max-w-6xl mx-auto flex items-center justify-between border-t',
-            'border-slate-200'
-          )}
-        >
-          <p>© 2026 Jhan Viloria</p>
-          <a
-            className="text-slate-600 transition-colors hover:text-blue-600"
-            href="https://github.com/jhanca-vm"
-            target="_blank"
-            rel="noreferrer"
-            aria-label="GitHub"
+        <footer className="px-6 text-sm sm:px-9 md:px-12">
+          <div
+            className={clsx(
+              'py-9 max-w-6xl mx-auto flex items-center justify-between',
+              'border-t border-slate-200'
+            )}
           >
-            <IconGithub className="h-5" />
-          </a>
-        </div>
-      </footer>
+            <p>© 2026 Jhan Viloria</p>
+            <a
+              className="text-slate-600 transition-colors hover:text-blue-600"
+              href="https://github.com/jhanca-vm"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="GitHub"
+            >
+              <IconGithub className="h-5" />
+            </a>
+          </div>
+        </footer>
+      </body>
     </html>
   )
 }
