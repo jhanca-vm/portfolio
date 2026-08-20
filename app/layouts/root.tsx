@@ -2,7 +2,6 @@ import clsx from 'clsx/lite'
 import type { ReactNode } from 'react'
 import IconGithub from '@/assets/icons/github.svg'
 import fonts from '@/styles/fonts.css?inline'
-import '@/styles/tailwind.css'
 
 interface Props {
   title: string
@@ -19,7 +18,7 @@ export default function RootLayout({ title, description, children }: Props) {
         <title>{title}</title>
         <meta name="description" content={description} />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-        <style dangerouslySetInnerHTML={{ __html: fonts }} />
+        <style>{fonts}</style>
       </head>
       <body className="bg-slate-50 text-slate-500">
         <main>{children}</main>

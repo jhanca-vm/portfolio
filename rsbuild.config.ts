@@ -1,5 +1,4 @@
 import { glob } from 'node:fs/promises'
-import path from 'node:path'
 import { defineConfig, type RsbuildEntry } from '@rsbuild/core'
 import { pluginReact } from '@rsbuild/plugin-react'
 import { pluginSvgr } from '@rsbuild/plugin-svgr'
@@ -8,33 +7,41 @@ import { pluginPrerender } from './plugins/prerender'
 import { pluginSsg } from './plugins/ssg'
 
 export default defineConfig(async () => {
-  const entry: RsbuildEntry = {}
+  const nodeEntry: RsbuildEntry = {}
+  const webEntry: RsbuildEntry = {}
 
   for await (const file of glob('app/pages/**/*.tsx')) {
-    const [name] = path.relative('app/pages', file).split('.')
-    entry[name] = `./${file}`
+    const name = file.substring(10, file.length - 4)
+    nodeEntry[name] = `./${file}`
+    webEntry[name] = './app/main.ts'
   }
 
   return {
-    plugins: [
-      pluginReact(),
-      pluginSvgr({ svgrOptions: { exportType: 'default' } }),
-      pluginTailwindcss()
-    ],
     environments: {
-      node: { plugins: [pluginPrerender(entry)] },
+      node: {
+        plugins: [
+          pluginReact({ fastRefresh: false }),
+          pluginSvgr({ svgrOptions: { exportType: 'default' } }),
+          pluginPrerender()
+        ],
+        source: { entry: nodeEntry },
+        output: { target: 'node' },
+        tools: {
+          cssLoader: { esModule: false },
+          rspack: { output: { library: { type: 'commonjs-static' } } }
+        }
+      },
       web: {
-        plugins: [pluginSsg()],
-        source: { entry },
-        html: { favicon: './app/favicon.svg' }
+        plugins: [pluginTailwindcss(), pluginSsg()],
+        source: { entry: webEntry },
+        html: { favicon: './app/favicon.svg' },
+        tools: { rspack: { dependencies: ['node'] } }
       }
     },
     dev: {
-      watchFiles: [
-        { paths: 'plugins', type: 'restart' },
-        { paths: 'app', options: { ignored: (file) => file.endsWith('.css') } }
-      ]
+      hmr: false,
+      watchFiles: [{ paths: 'plugins', type: 'restart' }, { paths: 'app' }]
     },
-    server: { host: true }
+    server: { host: true, htmlFallback: false }
   }
 })
