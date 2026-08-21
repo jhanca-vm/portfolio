@@ -26,7 +26,7 @@ export default function RootLayout({ title, description, children }: Props) {
           <div
             className={clsx(
               'py-9 max-w-6xl mx-auto flex items-center justify-between',
-              'border-t border-slate-200'
+              'border-t border-olive-300'
             )}
           >
             <p>© 2026 Jhan Viloria</p>

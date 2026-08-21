@@ -10,8 +10,8 @@ export default function Hero({ description }: Props) {
   return (
     <section
       className={clsx(
-        'pt-9 px-6 bg-linear-to-b from-red-500/5 to-amber-500/5 sm:pt-12',
-        'sm:px-9 md:px-12 lg:pt-18'
+        'pt-9 px-6 bg-olive-100 text-slate-600 sm:pt-12 sm:px-9 md:px-12',
+        'lg:pt-18'
       )}
     >
       <div className="max-w-6xl mx-auto flex gap-9 max-lg:flex-col lg:gap-12">
@@ -21,9 +21,11 @@ export default function Hero({ description }: Props) {
               ¡Hola! Soy Jhan Carlos Viloria Murillo
             </p>
             <h1
-              className={
-                'text-3xl text-balance md:text-5xl/tight lg:max-xl:text-3xl'
-              }
+              className={clsx(
+                'bg-linear-90 from-slate-500 to-slate-700 bg-clip-text',
+                'text-3xl text-balance text-transparent md:text-5xl/tight',
+                'lg:max-xl:text-3xl'
+              )}
             >
               Programador de aplicaciones de software
             </h1>

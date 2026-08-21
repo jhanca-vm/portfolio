@@ -41,7 +41,7 @@ export default function Projects() {
           }
         >
           <span>Mis proyectos</span>
-          <span className="grow border-t-2 border-dashed border-slate-200" />
+          <span className="grow border-t-2 border-dashed border-olive-300" />
         </h2>
         <ul className="mt-12 grid gap-9 md:grid-cols-2">
           {list.map(([id, description, domain, screenshot]) => (
