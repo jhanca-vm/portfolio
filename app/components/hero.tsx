@@ -1,4 +1,5 @@
 import clsx from 'clsx/lite'
+
 import cv from '@/assets/cv.pdf'
 import profile from '@/assets/profile.avif'
 
@@ -14,7 +15,7 @@ export default function Hero({ description }: Props) {
         'lg:pt-18'
       )}
     >
-      <div className="max-w-6xl mx-auto flex gap-9 max-lg:flex-col lg:gap-12">
+      <div className="mx-auto flex max-w-6xl gap-9 max-lg:flex-col lg:gap-12">
         <div className="max-w-prose lg:max-xl:max-w-148">
           <hgroup className="font-semibold">
             <p className="mb-3 text-lg text-pretty">
@@ -44,9 +45,9 @@ export default function Hero({ description }: Props) {
             Descargar CV
           </a>
         </div>
-        <figure className="max-w-96 lg:min-w-96 lg:mx-auto">
+        <figure className="max-w-96 lg:mx-auto lg:min-w-96">
           <img
-            className="grayscale-25 drop-shadow-md mask-l-from-60%"
+            className="mask-l-from-60% drop-shadow-md grayscale-25"
             src={profile}
             alt=""
             width={400}

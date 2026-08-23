@@ -1,6 +1,8 @@
 import clsx from 'clsx/lite'
 import type { ReactNode } from 'react'
+
 import IconGithub from '@/assets/icons/github.svg'
+
 import fonts from '@/styles/fonts.css?inline'
 
 interface Props {

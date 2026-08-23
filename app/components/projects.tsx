@@ -1,4 +1,5 @@
 import clsx from 'clsx/lite'
+
 import enLaMano from '@/assets/en-la-mano.avif'
 import fxChecker from '@/assets/fx-checker.avif'
 import healthy from '@/assets/healthy.avif'
@@ -33,11 +34,11 @@ const list = [
 
 export default function Projects() {
   return (
-    <section className="py-24 px-6 sm:px-9 md:px-12">
-      <div className="max-w-6xl mx-auto">
+    <section className="px-6 py-24 sm:px-9 md:px-12">
+      <div className="mx-auto max-w-6xl">
         <h2
           className={
-            'flex items-center gap-9 font-semibold text-2xl md:text-3xl'
+            'flex items-center gap-9 text-2xl font-semibold md:text-3xl'
           }
         >
           <span>Mis proyectos</span>
@@ -81,7 +82,7 @@ export default function Projects() {
               </div>
               <img
                 className={
-                  'mt-auto rounded-tl-md rounded-br-md shadow-lg opacity-95'
+                  'mt-auto rounded-tl-md rounded-br-md opacity-95 shadow-lg'
                 }
                 src={screenshot}
                 alt=""

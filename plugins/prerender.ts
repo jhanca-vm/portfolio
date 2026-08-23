@@ -1,7 +1,9 @@
+import { createRequire } from 'node:module'
 import { createContext, Script } from 'node:vm'
+
 import type { RsbuildPlugin } from '@rsbuild/core'
-import { jsx } from 'react/jsx-runtime'
-import { renderToStaticMarkup } from 'react-dom/server'
+
+const require = createRequire(import.meta.url)
 
 export const pluginPrerender = (): RsbuildPlugin => ({
   name: 'plugin-prerender',
@@ -10,14 +12,13 @@ export const pluginPrerender = (): RsbuildPlugin => ({
       for (const file in assets) {
         if (file.endsWith('.js')) {
           const script = new Script(assets[file].source() as string)
-          const context = createContext({ exports: {} })
+          const context = createContext({ require, exports: {} })
 
           try {
             script.runInContext(context)
 
-            const Page = jsx(context.exports.default, {})
-            const html = `<!doctype html>${renderToStaticMarkup(Page)}`
             const name = file.substring(0, file.length - 3)
+            const html = `<!doctype html>${context.exports.render()}`
 
             api.expose(`${name}.html`, html, { environment: 'web' })
             compilation.deleteAsset(file)
