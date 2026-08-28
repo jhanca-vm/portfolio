@@ -32,11 +32,16 @@ export const pluginSsg = (): RsbuildPlugin => ({
     })
 
     if (process.env.NODE_ENV === 'production') {
-      api.processAssets({ stage: 'optimize' }, ({ assets, compilation }) => {
-        for (const file in assets) {
-          if (file.endsWith('.js')) compilation.deleteAsset(file)
+      api.processAssets(
+        { stage: 'optimize-inline' },
+        ({ assets, compilation }) => {
+          for (const file in assets) {
+            if (!assets[file].source()) {
+              compilation.deleteAsset(file)
+            }
+          }
         }
-      })
+      )
     }
   }
 })

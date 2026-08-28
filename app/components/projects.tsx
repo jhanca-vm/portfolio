@@ -5,6 +5,9 @@ import fxChecker from '@/assets/fx-checker.avif'
 import healthy from '@/assets/healthy.avif'
 import techBookClub from '@/assets/tech-book-club.avif'
 
+import ExternalLink from './external-link'
+import Section from './section'
+
 const list = [
   [
     'fx_checker',
@@ -34,66 +37,51 @@ const list = [
 
 export default function Projects() {
   return (
-    <section className="px-6 py-24 sm:px-9 md:px-12">
-      <div className="mx-auto max-w-6xl">
-        <h2
-          className={
-            'flex items-center gap-9 text-2xl font-semibold md:text-3xl'
-          }
-        >
-          <span>Mis proyectos</span>
-          <span className="grow border-t-2 border-dashed border-olive-300" />
-        </h2>
-        <ul className="mt-12 grid gap-9 md:grid-cols-2">
-          {list.map(([id, description, domain, screenshot]) => (
-            <li
-              className={clsx(
-                'overflow-hidden pt-9 pl-9 flex flex-col rounded-md',
-                'bg-slate-300/20 lg:pl-12'
-              )}
-              key={id}
+    <Section title="Mis Proyectos">
+      <ul className="grid gap-9 md:grid-cols-2">
+        {list.map(([id, description, domain, screenshot]) => (
+          <li
+            className={clsx(
+              'overflow-hidden pt-9 pl-9 flex flex-col rounded-md',
+              'bg-slate-300/20 lg:pl-12'
+            )}
+            key={id}
+          >
+            <p
+              className={
+                'mr-9 font-medium text-pretty text-slate-600 md:text-lg/snug'
+              }
             >
-              <p
-                className={clsx(
-                  'mr-9 font-medium text-slate-600 text-pretty',
-                  'md:text-lg/snug'
-                )}
+              {description}
+            </p>
+            <div className="mt-3 mb-6 flex gap-3 text-sm">
+              <ExternalLink
+                className="text-blue-600 underline-offset-2 hover:underline"
+                href={`https://${domain}`}
               >
-                {description}
-              </p>
-              <div className="mt-3 mb-6 flex gap-3 text-sm">
-                <a
-                  className="text-blue-600 underline-offset-2 hover:underline"
-                  href={`https://${domain}`}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Visitar sitio
-                </a>
-                |
-                <a
-                  className="text-red-700 underline-offset-2 hover:underline"
-                  href={`https://github.com/jhanca-vm/${id}`}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Ver código
-                </a>
-              </div>
-              <img
-                className={
-                  'mt-auto rounded-tl-md rounded-br-md opacity-95 shadow-lg'
-                }
-                src={screenshot}
-                alt=""
-                width={580}
-                height={413}
-                loading="lazy"
-              />
-            </li>
-          ))}
-        </ul>
-      </div>
-    </section>
+                Visitar sitio
+              </ExternalLink>
+              |
+              <ExternalLink
+                className="text-red-700 underline-offset-2 hover:underline"
+                href={`https://github.com/jhanca-vm/${id}`}
+              >
+                Ver código
+              </ExternalLink>
+            </div>
+            <img
+              className={
+                'mt-auto rounded-tl-md rounded-br-md opacity-95 shadow-lg'
+              }
+              src={screenshot}
+              alt=""
+              width={580}
+              height={413}
+              loading="lazy"
+            />
+          </li>
+        ))}
+      </ul>
+    </Section>
   )
 }
