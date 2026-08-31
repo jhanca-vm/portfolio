@@ -177,6 +177,13 @@ export function render() {
           correctamente. Desactivarlo hace que todo funcione sin configuración
           extra
         </li>
+        <li>
+          <InlineCode>watchFiles</InlineCode>: fuerza un restart completo cuando
+          se añaden o eliminan archivos en <InlineCode>src/pages</InlineCode>.
+          Es necesario porque el escaneo con <InlineCode>glob</InlineCode> se
+          ejecuta solo al cargar la config, así que sin esto, las nuevas páginas
+          no aparecerían hasta reiniciar manualmente.
+        </li>
       </ul>
       <p>
         Con esto ya puedes generar páginas estáticas y, si lo necesitas,

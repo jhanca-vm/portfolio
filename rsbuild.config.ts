@@ -62,7 +62,13 @@ export default defineConfig(async () => {
         }
       }
     },
-    dev: { hmr: false, watchFiles: [{ paths: 'plugins', type: 'restart' }] },
+    dev: {
+      hmr: false,
+      watchFiles: [
+        { paths: 'plugins', type: 'restart' },
+        { paths: 'app/pages', events: ['add', 'unlink'], type: 'restart' }
+      ]
+    },
     output: { filenameHash: false },
     server: { host: true, htmlFallback: false }
   }

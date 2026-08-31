@@ -53,6 +53,11 @@ export default defineConfig(async () => {
         }
       }
     },
-    dev: { hmr: false }
+    dev: {
+      hmr: false,
+      watchFiles: [
+        { paths: 'src/pages', events: ['add', 'unlink'], type: 'restart' }
+      ]
+    }
   }
 })
