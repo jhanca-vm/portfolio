@@ -3,6 +3,7 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import Code from '@/components/code'
 import ExternalLink from '@/components/external-link'
 import InlineCode from '@/components/inline-code'
+import Subtitle from '@/components/subtitle'
 import BlogLayout from '@/layouts/blog'
 
 import config from './examples/config?raw'
@@ -38,9 +39,7 @@ export function render() {
         limitación. La alternativa que propongo elimina esa dependencia y da
         control total sobre el proyecto.
       </p>
-      <h2 className="mt-12 text-2xl font-semibold text-slate-700 md:text-3xl">
-        Por qué React y Rsbuild
-      </h2>
+      <Subtitle>Por qué React y Rsbuild</Subtitle>
       <p>
         Esta guía está escrita con React porque es el framework que más uso y el
         que tiene mayor adopción, pero la técnica es adaptable a cualquier
@@ -59,7 +58,7 @@ export function render() {
         Aquí es donde entra <strong className="font-semibold">Rsbuild</strong> y
         su sistema de{' '}
         <ExternalLink
-          className="font-medium text-blue-700 hover:underline"
+          className="font-medium text-blue-600 hover:underline"
           href="https://rsbuild.rs/guide/advanced/environments"
         >
           multi-environment
@@ -77,9 +76,7 @@ export function render() {
           sirve ese HTML estático.
         </li>
       </ul>
-      <h2 className="mt-12 text-2xl font-semibold text-slate-700 md:text-3xl">
-        El punto de partida: un entry server como en SSR
-      </h2>
+      <Subtitle>El punto de partida: un entry server como en SSR</Subtitle>
       <p>
         Siguiendo la convención que usan los bundlers al implementar SSR, separo
         el código de servidor y cliente con los sufijos{' '}
@@ -102,7 +99,7 @@ export function render() {
         hay nada que compilar para el navegador. Para resolverlo, le asigno un
         fallback que creo en memoria con{' '}
         <ExternalLink
-          className="font-medium text-blue-700 hover:underline"
+          className="font-medium text-blue-600 hover:underline"
           href="https://rspack.rs/plugins/virtual-modules-plugin"
         >
           VirtualModulesPlugin
@@ -111,9 +108,7 @@ export function render() {
         solo cuando realmente se necesite:
       </p>
       <Code text={glob} />
-      <h2 className="mt-12 text-2xl font-semibold text-slate-700 md:text-3xl">
-        Los plugins: de SSR a prerender
-      </h2>
+      <Subtitle>Los plugins: de SSR a prerender</Subtitle>
       <p>
         Con las entradas definidas, los plugins se encargan del resto. El
         primero, <InlineCode>pluginPrerender</InlineCode>:
@@ -188,8 +183,14 @@ export function render() {
       <p>
         Con esto ya puedes generar páginas estáticas y, si lo necesitas,
         añadirles funcionalidades con código nativo. Si lo que te interesa es
-        llevarlo más allá con una arquitectura de islas, lo explico en el
-        próximo artículo.
+        llevarlo más allá con una arquitectura de islas, lo explico en el{' '}
+        <a
+          className="font-medium text-blue-600 hover:underline"
+          href="/blog/islands-architecture-rsbuild"
+        >
+          próximo artículo
+        </a>
+        .
       </p>
     </BlogLayout>
   )

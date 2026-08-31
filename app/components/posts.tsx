@@ -14,7 +14,7 @@ const metadata = import.meta.glob<Meta>('../pages/blog/**/*.meta.yaml', {
 export default function Posts() {
   return (
     <Section title="Blog" id="blog">
-      <ul className="max-w-prose">
+      <ul className="grid max-w-prose gap-12">
         {Object.values(metadata).map(
           ({ slug, date, title, description, callToAction }) => (
             <li key={slug}>
