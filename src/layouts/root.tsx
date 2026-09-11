@@ -6,21 +6,15 @@ import type { ReactNode } from 'react'
 import Footer from '@/components/footer'
 
 import fonts from '@/styles/fonts.css?inline'
-import tailwind from '@/styles/tailwind.css?url'
+import '@/styles/tailwind.css'
 
 interface Props {
   title: string
   description: string
-  head?: ReactNode
   children?: ReactNode
 }
 
-export default function RootLayout({
-  title,
-  description,
-  head,
-  children
-}: Props) {
+export default function RootLayout({ title, description, children }: Props) {
   return (
     <html lang="es">
       <head>
@@ -29,7 +23,6 @@ export default function RootLayout({
         <title>{`${title} - Jhan Viloria`}</title>
         <meta name="description" content={description} />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-        <style>{fonts}</style>
         <link
           rel="preload"
           href={beVietnamPro400}
@@ -51,8 +44,7 @@ export default function RootLayout({
           type="font/woff2"
           crossOrigin=""
         />
-        <link rel="stylesheet" href={tailwind} />
-        {head}
+        <style>{fonts}</style>
       </head>
       <body className="bg-slate-50 text-slate-500">
         {children}

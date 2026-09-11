@@ -1,6 +1,0 @@
-slug: ssg-react-rsbuild
-date: 2026-08-28
-title: Cómo hacer SSG con React y Rsbuild
-description: Genera sitios estáticos con React y Rsbuild, zero JS por defecto, y
-  sin depender de frameworks como Astro.
-callToAction: Te cuento cómo lo hice

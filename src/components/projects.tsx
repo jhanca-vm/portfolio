@@ -37,7 +37,7 @@ const list = [
 
 export default function Projects() {
   return (
-    <Section title="Mis Proyectos">
+    <Section title="Proyectos">
       <ul className="grid gap-9 md:grid-cols-2">
         {list.map(([id, description, domain, screenshot]) => (
           <li

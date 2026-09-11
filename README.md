@@ -1,9 +1,5 @@
 # Portfolio
 
-Static site built with [React](https://react.dev) and
-[Rsbuild](https://rsbuild.rs), inspired by [Astro](https://astro.build) and
-[Next.js](https://nextjs.org).
-
 ## Setup
 
 Install the dependencies:
