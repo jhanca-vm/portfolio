@@ -15,17 +15,17 @@
     "react-dom": "19.3.0"
   },
   "devDependencies": {
-    "@rsbuild/core": "2.2.5",
-    "@rsbuild/plugin-react": "2.1.0",
+    "@rsbuild/core": "2.2.12",
+    "@rsbuild/plugin-react": "2.1.1",
     "@rsbuild/plugin-svgr": "2.0.5",
     "@rsbuild/plugin-tailwindcss": "2.0.3",
     "@rsbuild/plugin-yaml": "2.0.0",
-    "@types/node": "^24.13.4",
+    "@types/node": "^24.19.1",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
-    "oxfmt": "0.67.0",
-    "oxlint": "1.82.0",
-    "rsbuild-plugin-ssg": "1.0.0",
+    "oxfmt": "0.72.0",
+    "oxlint": "1.87.0",
+    "rsbuild-plugin-ssg": "1.1.0",
     "tailwindcss": "4.3.3",
     "typescript": "7.0.2"
   }

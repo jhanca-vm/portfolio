@@ -3,12 +3,18 @@ import clsx from 'clsx/lite'
 import enLaMano from '@/assets/en-la-mano.avif'
 import fxChecker from '@/assets/fx-checker.avif'
 import healthy from '@/assets/healthy.avif'
-import techBookClub from '@/assets/tech-book-club.avif'
+import passwordGenerator from '@/assets/password-generator.avif'
 
 import ExternalLink from './external-link'
 import Section from './section'
 
 const list = [
+  [
+    'password-generator',
+    'Generador de contraseñas.',
+    'passwordgenerator.koyeb.app',
+    passwordGenerator
+  ],
   [
     'fx_checker',
     'Aplicación web de conversión de divisas.',
@@ -23,15 +29,9 @@ const list = [
   ],
   [
     'en-la-mano',
-    'Sitio web para solicitar préstamos en línea.',
+    'Sitio web de préstamos en línea.',
     'enlamano.com.uy',
     enLaMano
-  ],
-  [
-    'tech-book-club',
-    'Landing page para un club de lectura.',
-    'techbookclub.pages.dev',
-    techBookClub
   ]
 ]
 
@@ -66,7 +66,7 @@ export default function Projects() {
                 className="text-red-700 underline-offset-2 hover:underline"
                 href={`https://github.com/jhanca-vm/${id}`}
               >
-                Ver código
+                Ver repositorio
               </ExternalLink>
             </div>
             <img
